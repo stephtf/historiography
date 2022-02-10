@@ -1,8 +1,9 @@
 const express = require('express'); 
 const sequelize = require('./config/connection');
 
-// connect server to the routes 
-const routes = require('./controllers');
+// connect server to the controllers/routes folder
+// const apiRoutes = require('./controllers/api');
+const homeRoutes = require('./controllers/');
 
 const app = express(); 
 
@@ -13,10 +14,13 @@ const Book = require('./models/Book');
 // start the server 
 const PORT = process.env.PORT || 3001;
 
+// required middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(routes); 
+// all the routes that come out of the controllers/api folder will have the prefix of 'api'
+// app.use('/api', apiRoutes); 
+app.use('/', homeRoutes);
 
 sequelize.sync({ force : true }).then(() => {
     app.listen(PORT, () => {

@@ -1,0 +1,46 @@
+[
+    {
+      "field": "Urban history",
+      "title": "A History of Detroit",
+      "author": "Jennifer Jones",
+      "argument": "Argument goes here",
+      "examples": "I had a few examples and they would go here",
+      "keywords": "identity, space, urbanization",
+      "methods": "methods description goes here",
+      "significance": "why this book is significant for the field...",
+      "user_id": "1"
+    },
+    {
+        "field": "Asian American history",
+        "title": "Stranger Intimacy",
+        "author": "Nyan Shah",
+        "argument": "Argument goes here",
+        "examples": "I had a few examples and they would go here",
+        "keywords": "identity, space, Chinatowns",
+        "methods": "methods description goes here",
+        "significance": "why this book is significant for the field...",
+        "user_id": "2"
+    },
+    {
+        "field": "Gender and Sexuality",
+        "title": "Thinking Sex",
+        "author": "Gayle Rubin",
+        "argument": "Argument goes here",
+        "examples": "I had a few examples and they would go here",
+        "keywords": "sexual identity, sexual hierarchy, pedophilia",
+        "methods": "methods description goes here",
+        "significance": "why this book is significant for the field...",
+        "user_id": "2"
+    },
+    {
+        "field": "Native American history",
+        "title": "The War that Happened",
+        "author": "Susan Brown",
+        "argument": "Argument goes here",
+        "examples": "I had a few examples and they would go here",
+        "keywords": "war, empire, expansion",
+        "methods": "methods description goes here",
+        "significance": "why this book is significant for the field...",
+        "user_id": "3"
+    }
+  ]

@@ -3,6 +3,10 @@ const sequelize = require('./config/connection');
 
 const app = express(); 
 
+// import in the models 
+const User = require('./models/User');
+const Book = require('./models/Book');
+
 // start the server 
 const PORT = process.env.PORT || 3001;
 

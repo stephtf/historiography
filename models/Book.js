@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize'); 
+const { Model, DataTypes } = require('sequelize'); 
 const sequelize = require('../config/connection'); 
 
 class Book extends Model {} 
@@ -29,7 +29,7 @@ Book.init({
         type: DataTypes.STRING,
     },
     user_id: {
-        type: DataTypes.INT,
+        type: DataTypes.INTEGER,
     },
 }, {
     sequelize, 
@@ -40,4 +40,4 @@ Book.init({
 }
 ); 
 
-module.exports = User;
+module.exports = Book;

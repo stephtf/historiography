@@ -2,8 +2,7 @@ const express = require('express');
 const sequelize = require('./config/connection');
 
 // connect server to the controllers/routes folder
-// const apiRoutes = require('./controllers/api');
-const homeRoutes = require('./controllers/');
+const routes = require('./controllers/');
 
 const app = express(); 
 
@@ -19,8 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // all the routes that come out of the controllers/api folder will have the prefix of 'api'
-// app.use('/api', apiRoutes); 
-app.use('/', homeRoutes);
+app.use('/', routes);
 
 sequelize.sync({ force : true }).then(() => {
     app.listen(PORT, () => {

@@ -11,4 +11,4 @@ const getData = () => {
 
 getData();
 
-console.log("hello Steph");
+console.log("hello Steph. the index.js is connected to main.handlebars and it is grabbing all the books lol");

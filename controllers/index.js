@@ -12,7 +12,12 @@ app.get('/', (req, res) => {
 
 // the url is localhost:3001/signup (sign up new user)
 app.get('/signup', (req, res) => {
-	res.send('Hello this the route for the page where a new uesr can sign up!');
+	// res.send('Hello this the route for the page where a new uesr can sign up!');
+	try {
+		res.render('signup');
+	  } catch (err) {
+		res.status(500).json(err);              
+	  }
 	});
 
 // the url is localhost:3001/home (home page or dashboard when user is logged in)

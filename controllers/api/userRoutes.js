@@ -23,5 +23,28 @@ app.post('/', (req, res) => {
 	});
 });
 
+// the url is localhost:3001/api/users/login 
+// router.post('/login', async (req, res) => {
+// 	try {
+// 	  //find one user who has this username
+// 	  const userData = await User.findOne({ where: { username: req.body.username } }); 
+// 	  //return error if userData doesn't exist
+// 	} 
+// 	catch (err) {
+// 		if(!userData) {
+// 			res 
+// 			  .status(400) 
+// 			return;
+// 		  }
+// 		  //check if the password is valid 
+// 		  const validPassword = await userData.checkPassword(req.body.password); 
+// 		  //return error if password is invalid
+// 		  if(!validPassword) {
+// 			res 
+// 			  .status(400) 
+// 			return;
+// 		  }
+// 	}
+// });
 
 module.exports = app;

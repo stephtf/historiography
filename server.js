@@ -1,5 +1,6 @@
 const express = require('express'); 
 const sequelize = require('./config/connection');
+const path = require('path');
 
 // connect server to the controllers/routes folder
 const routes = require('./controllers/');
@@ -19,9 +20,11 @@ const Book = require('./models/Book');
 const PORT = process.env.PORT || 3001;
 
 // required middleware
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+
 
 // set handlebars as the default template engine: see unit 14 activity 3
 app.engine('handlebars', hbs.engine);

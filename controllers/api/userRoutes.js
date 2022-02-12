@@ -14,14 +14,26 @@ app.get('/', async (req, res) => {
 
 // the url is localhost: 3001/api/users
 // post route to add new users to the database 
-app.post('/', (req, res) => {
-	User.create({
-		username: req.body.username,
-		password: req.body.password
-	}) .then((newUser) => {
-		res.json(newUser);
-	});
-});
+app.post('/', async (req, res) => {
+	try {
+	  const newUser = req.body;
+	  newUser.password = await bcrypt.hash(req.body.password, 10);
+	  const userData = await User.create(newUser);
+	  res.status(200).json(userData);
+	} catch (err) {
+	  res.status(400).json(err);
+	}
+  });
+
+// THIS CODE ALSO WORKS: 
+// app.post('/', (req, res) => {
+// 	User.create({
+// 		username: req.body.username,
+// 		password: req.body.password
+// 	}) .then((newUser) => {
+// 		res.json(newUser);
+// 	});
+// });
 
 // the url is localhost:3001/api/users/login
 // post route to check if user exists, then log them in

@@ -2,6 +2,9 @@ const express = require('express');
 const sequelize = require('./config/connection');
 const path = require('path');
 
+// import express-session 
+const session = require('express-session');
+
 // connect server to the controllers/routes folder
 const routes = require('./controllers/');
 const apiRoutes = require('./controllers/api')
@@ -18,6 +21,15 @@ const Book = require('./models/Book');
 
 // start the server 
 const PORT = process.env.PORT || 3001;
+
+// set up sessions
+const sess = {
+    secret: 'Super secret secret',
+    resave: false,
+    saveUninitialized: false,
+  };
+  
+  app.use(session(sess));
 
 // required middleware
 // app.use(express.static('public'));

@@ -19,7 +19,13 @@ app.post('/', async (req, res) => {
 	  const newUser = req.body;
 	  newUser.password = await bcrypt.hash(req.body.password, 10);
 	  const userData = await User.create(newUser);
-	  res.status(200).json(userData);
+
+	  req.session.save(() => {
+		req.session.user_id = userData.id;
+		req.session.loggedIn = true;
+	
+	  	res.status(200).json(userData);
+		});
 	} catch (err) {
 	  res.status(400).json(err);
 	}
@@ -59,7 +65,7 @@ app.post('/login', async (req, res) => {
 
 		req.session.save(() => {
 			req.session.user_id = userData.id;
-			req.session.logged_in = true; 
+			req.session.loggedIn = true; 
 			res.json({ user: userData });
 		});		
 	}
@@ -67,6 +73,18 @@ app.post('/login', async (req, res) => {
 		res.json({ message: "hit catch on route login post"});
 	}
 });	
-	
+
+// the url is localhost:3001/api/users/logout
+// post route to log users out
+app.post('/logout', (req, res) => {
+	// when the user logs out, destroy the session
+	if (req.session.loggedIn) {
+	  req.session.destroy(() => {
+		res.status(204).end();
+	  });
+	} else {
+	  res.status(404).end();
+	}
+  });
 
 module.exports = app;

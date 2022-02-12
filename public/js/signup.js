@@ -24,7 +24,7 @@ const signupForm = async (event) => {
             // if successful, redirect the browser to the homepage
             document.location.replace('/home');
         } else {
-            alert(`your passwords don't match. try again`);
+            alert(`username already exists!`);
         }
     }; 
 }

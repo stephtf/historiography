@@ -21,7 +21,7 @@ app.post('/', async (req, res) => {
 	  const userData = await User.create(newUser);
 
 	  req.session.save(() => {
-		req.session.user_id = userData.id;
+		req.session.userId = userData.id;
 		req.session.loggedIn = true;
 	
 	  	res.status(200).json(userData);
@@ -50,7 +50,7 @@ app.post('/login', async (req, res) => {
 		if(!userData) {
 			res 
 				.status(400)
-				.json({ message: 'incorrect username or password'});
+				.json({ message: 'incorrect username'});
 			return;
 		}
 
@@ -64,7 +64,7 @@ app.post('/login', async (req, res) => {
 		}
 
 		req.session.save(() => {
-			req.session.user_id = userData.id;
+			req.session.userId = userData.id;
 			req.session.loggedIn = true; 
 			res.json({ user: userData });
 		});		

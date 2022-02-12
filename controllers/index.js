@@ -22,8 +22,14 @@ app.get('/signup', (req, res) => {
 
 // the url is localhost:3001/home (home page or dashboard when user is logged in)
 app.get('/home', (req, res) => {
-	res.send('Hello this the route for the user after signing in!');
+	// res.send('Hello this the route for the user after signing in!');
+	try {
+		res.render('home');
+	  } catch (err) {
+		res.status(500).json(err);              
+	  }
 	});
+
 
 // the url is localhost:3001/add (add new books)
 app.get('/add', (req, res) => {

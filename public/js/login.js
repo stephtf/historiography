@@ -7,14 +7,20 @@ const loginForm = async (event) => {
 
     const password = document.querySelector('#existing-password').value.trim();
 
+    if (username && password) {
+        const userEntry = await fetch ('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ username, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-
-}
-
-
-
-
-
+    if(userEntry.ok) {
+        document.location.replace('/home');
+    } else {
+        alert('failed to log in');
+    }
+    }
+};
 
 document
     .getElementById('login-button')

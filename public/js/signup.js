@@ -7,21 +7,27 @@ const signupForm = async (event) => {
     const password = document.querySelector('#new-password').value.trim();
     const passwordAgain = document.querySelector('#new-password-again').value.trim();
 
+    if (password !== passwordAgain) {
+        alert('passwords do not match! please re-enter your password');
+        document.location.replace;
+        return false;
+    }
+    
     if (password === passwordAgain) {
         const addUser = await fetch('/api/users', {
             method: 'POST', 
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-
+    
         if (addUser.ok) {
-            // If successful, redirect the browser to the homepage
+            // if successful, redirect the browser to the homepage
             document.location.replace('/home');
         } else {
             alert(`your passwords don't match. try again`);
         }
-    } 
-};
+    }; 
+}
 
 document
     .getElementById('signup-button')

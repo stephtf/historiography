@@ -23,28 +23,38 @@ app.post('/', (req, res) => {
 	});
 });
 
-// the url is localhost:3001/api/users/login 
-// router.post('/login', async (req, res) => {
-// 	try {
-// 	  //find one user who has this username
-// 	  const userData = await User.findOne({ where: { username: req.body.username } }); 
-// 	  //return error if userData doesn't exist
-// 	} 
-// 	catch (err) {
-// 		if(!userData) {
-// 			res 
-// 			  .status(400) 
-// 			return;
-// 		  }
-// 		  //check if the password is valid 
-// 		  const validPassword = await userData.checkPassword(req.body.password); 
-// 		  //return error if password is invalid
-// 		  if(!validPassword) {
-// 			res 
-// 			  .status(400) 
-// 			return;
-// 		  }
-// 	}
-// });
+// the url is localhost:3001/api/users/login
+// post route to check if user exists, then log them in
+app.post('/login', async (req, res) => {
+	try {
+		const userData = await User.findOne({ where: { username: req.body.username } }); 
+
+		if(!userData) {
+			res 
+				.status(400)
+				.json({ message: 'incorrect username or password'});
+			return;
+		}
+
+		const passwordGood = await userData.checkPassword(req.body.password); 
+
+		if(!passwordGood) {
+			res	
+				.status(400)
+				.json({ message: 'password incorrect' });
+			return;
+		}
+
+		req.session.save(() => {
+			req.session.user_id = userData.id;
+			req.session.logged_in = true; 
+			res.json({ user: userData });
+		});		
+	}
+	catch (err) {
+		res.json({ message: "hit catch on route login post"});
+	}
+});	
+	
 
 module.exports = app;

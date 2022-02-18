@@ -26,7 +26,7 @@ app.get('/home', (req, res) => {
 	try {
 		console.log(req.session);
 		res.render('home', {
-			userIn: req.session.loggedIn,
+			loggedIn: req.session.loggedIn,
 		});
 	  } catch (err) {
 		res.status(500).json(err);              

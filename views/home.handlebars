@@ -2,7 +2,7 @@
     This is the dashboard for the user, or the home page 
 </div>
 
-{{#if userIn}}
+{{#if loggedIn}}
 <div>{{req.body.username}} is currently logged in. </div>
 {{else}}
 <div>{{userData.id}} is NOT currently logged in.</div>

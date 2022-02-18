@@ -17,7 +17,7 @@ const loginForm = async (event) => {
     if(userEntry.ok) {
         document.location.replace('/home');
     } else {
-        alert('failed to log in');
+        alert('username and/or password incorrect');
     }
     }
 };
@@ -25,3 +25,4 @@ const loginForm = async (event) => {
 document
     .getElementById('login-button')
     .addEventListener('click', loginForm);
+

@@ -3,8 +3,8 @@ const bcrypt = require('bcrypt');
 const User = require('../../models/User');
 const Book = require('../../models/Book');
 
-// the url is localhost:3001/api/users
 // get route to check user info in the database 
+// localhost:3001/api/users
 app.get('/', async (req, res) => {
 	// res.json('Hello this the route for user DATA');
 	await User.findAll().then((userData) => {
@@ -12,8 +12,9 @@ app.get('/', async (req, res) => {
 	});
 	});
 
-// the url is localhost: 3001/api/users
+
 // post route to add new users to the database 
+// localhost: 3001/api/users
 app.post('/', async (req, res) => {
 	try {
 	  const newUser = req.body;
@@ -23,7 +24,7 @@ app.post('/', async (req, res) => {
 	  req.session.save(() => {
 		req.session.userId = userData.id;
 		req.session.loggedIn = true;
-	
+		console.log(req.session);
 	  	res.status(200).json(userData);
 		});
 	} catch (err) {
@@ -41,11 +42,14 @@ app.post('/', async (req, res) => {
 // 	});
 // });
 
-// the url is localhost:3001/api/users/login
+
 // post route to check if user exists, then log them in
+// localhost:3001/api/users/login
 app.post('/login', async (req, res) => {
 	try {
 		const userData = await User.findOne({ where: { username: req.body.username } }); 
+
+		console.log(userData);
 
 		if(!userData) {
 			res 
@@ -56,26 +60,32 @@ app.post('/login', async (req, res) => {
 
 		const passwordGood = await userData.checkPassword(req.body.password); 
 
+		console.log(`what is ${passwordGood}`);
+
 		if(!passwordGood) {
 			res	
 				.status(400)
-				.json({ message: 'password incorrect' });
+				.json({ message: 'incorrect password' });
 			return;
 		}
 
-		req.session.save(() => {
-			req.session.userId = userData.id;
-			req.session.loggedIn = true; 
-			res.json({ user: userData });
-		});		
+		if(userData && passwordGood) {
+			console.log('am i in there?');
+			req.session.save(() => {
+				req.session.userId = userData.id;
+				req.session.loggedIn = true; 
+				res.json({ user: userData });
+			})	
+		}
 	}
 	catch (err) {
-		res.json({ message: "hit catch on route login post"});
+		console.log(err);
+		res.json({ message: "login unsuccessful"});
 	}
 });	
 
-// the url is localhost:3001/api/users/logout
 // post route to log users out
+// localhost:3001/api/users/logout
 app.post('/logout', (req, res) => {
 	// when the user logs out, destroy the session
 	if (req.session.loggedIn) {

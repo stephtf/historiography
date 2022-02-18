@@ -12,9 +12,15 @@
 <body>
     <nav> 
         <a href="/about">about</a>
-        <h1>historiography</h1>
+        <a href ="/"><h1>historiography</h1></a>
+        {{#if loggedIn}}
+         <p id="logout-button">log out</p>
+        {{/if}}
     </nav>
     {{{ body }}} 
-<script src="js/index.js"></script>
+
+{{#if loggedIn}}  
+<script src="js/logout.js"></script>
+{{/if}}
 </body>
 </html>

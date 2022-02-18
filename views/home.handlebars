@@ -2,6 +2,8 @@
     This is the dashboard for the user, or the home page 
 </div>
 
-{{#if loggedIn}}
-<div>You, {{res.sessions.userId}}, are currently logged in. </div>
+{{#if userIn}}
+<div>{{req.body.username}} is currently logged in. </div>
+{{else}}
+<div>{{userData.id}} is NOT currently logged in.</div>
 {{/if}}

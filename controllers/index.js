@@ -1,3 +1,5 @@
+const Book = require('../models/Book');
+
 const app = require('express').Router(); 
 
 // localhost:3001 (login)
@@ -21,14 +23,20 @@ app.get('/signup', (req, res) => {
 	});
 
 // localhost:3001/home (home page or dashboard when user is logged in)
-app.get('/home', (req, res) => {
-	// res.send('Hello this the route for the user after signing in!');
+app.get('/home', async (req, res) => {
 	try {
-		console.log(req.session);
-		res.render('home', {
+		// console.log(req.session);
+		// res.render('home', {
+			
+		// });
+
+		const bookData = await Book.findAll();
+		const books = bookData.map((book) => book.get({plain:true}));
+		res.render('home', { bookObject: books,
 			loggedIn: req.session.loggedIn,
 			userIn: req.session.username,
 		});
+		console.log(books);
 	  } catch (err) {
 		res.status(500).json(err);              
 	  }

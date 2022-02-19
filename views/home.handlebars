@@ -1,11 +1,7 @@
-<div>
-    This is the dashboard for the user, or the home page 
-</div>
-
 {{#if loggedIn}}
-<div>{{userIn}} is currently logged in. </div>
+<div>welcome back, {{userIn}}!</div>
 {{else}}
-<div>{{userIn}} is NOT currently logged in.</div>
+<div>{{userIn}} is not currently logged in</div>
 {{/if}}
 
 {{!-- home menu for historiography --}}
@@ -13,13 +9,13 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="#">home</a>
+        <a class="nav-link active" href="/home">home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">favorites</a>
+        <a class="nav-link active" href="/home">favorites</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">trash</a>
+        <a class="nav-link active" href="/trash">trash</a>
       </li>
       <li class="nav-item">
         <button class="btn btn-outline-secondary nav-link active">add new</button>
@@ -29,23 +25,21 @@
 </div>
 
 
-<div class="container row">
+<div class="row">
     {{!-- below is the column for the books --}}
     <div class="flex-column">
-        <div class="card" style="width: 18rem;">
+        <div class="card select-book" style="width: 18rem;">
         {{!-- {{#each bookNotes as |book|}} --}}
-        <img class="card-img-top" src="..." alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">Book title</h5>
-            <p class="card-text">Some quick example text to build on the book's title and make up the bulk of the book's content.Some quick example text to build on the book's title and make up the bulk of the book's content.</p>
+            <p class="card-text">{{bookObject}}</p>
         </div>
         {{!-- {{/each}} --}}
         </div>
 
         <div class="card" style="width: 18rem;">
         {{!-- {{#each bookNotes as |book|}} --}}
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
+        <div class="card-body select-book">
             <h5 class="card-title">Book title</h5>
             <p class="card-text">Some quick example text to build on the book's title and make up the bulk of the book's content.Some quick example text to build on the book's title and make up the bulk of the book's content.</p>
         </div>
@@ -53,47 +47,45 @@
         </div>
     </div>
 
-    <div class="col flex-grow-1">
-        <nav id="navbar-example2" class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" href="#fat">@fat</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#mdo">@mdo</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#one">one</a>
-        <a class="dropdown-item" href="#two">two</a>
-        <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#three">three</a>
-      </div>
-    </li>
-  </ul>
-</nav>
-<div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-  <h4 id="fat">@fat</h4>
-  <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+{{!-- full note view --}}
+<div class="col flex-grow-1">
+    <nav id="navbar-example2" class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <h2>Title of the book</h2>
+      <h3>author's name</h3></a>
+    {{!-- dropdown menu for full note view --}}
+        <ul class="nav nav-pills">    
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#one">keywords</a>
+                <a class="dropdown-item" href="#two">methods and sources</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#three">significance and critique</a>
+            </div>
+            </li>
+        </ul>
+    </nav>
 
-
-</p>
-  <h4 id="mdo">@mdo</h4>
-  <p>
-</p>
-  <h4 id="one">one</h4>
-  <p>
-
-</p>
-  <h4 id="two">two</h4>
-  <p>...</p>
-  <h4 id="three">three</h4>
-  <p>...</p>
-</div>
+    <div style="overflow-y:scroll;" class="col">
+        <h4 id="fat">argument</h4>
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+        </p>
+        <h4 id="mdo">examples</h4>
+        <p>
+            Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+        </p>
+        <h4 id="one">keywords</h4>
+        <p>
+        Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+        </p>
+        <h4 id="two">methods and sources</h4>
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
+        <h4 id="three">significance</h4>
+        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat. Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat</p>
     </div>
-    {{!-- below is the container for the new note/notes --}}
+</div>
+        {{!-- below is the container for the new note/notes --}}
+</div>
 
-</div>
-</div>
+

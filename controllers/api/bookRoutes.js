@@ -3,12 +3,18 @@ const Book = require('../../models/Book');
 
 // get route to grab books from the database 
 // localhost:3001/api/books
-app.get('/', async (req, res) => {
-	// res.json('Hello this the route for book DATA');
-	await Book.findAll().then((bookData) => {
-		res.json(bookData);
-	});
+app.get('/home', async (req, res) => {
+	try {
+		const book = Book.findAll( { plain: true });
+		res.render('home', {
+			bookData: book,
+		});
+		console.log(book);
+	} catch (err) {
+		res.status(500).json(err); 
+	}
 });
+
 
 // post route to add books to the database 
 // localhost:3001/api/books
@@ -25,6 +31,7 @@ app.post('/', (req, res) => {
 		user_id: req.body.user_id
 	}) .then((newBook) => {
 		res.json(newBook);
+		console.log(newBook);
 	});
 });
 

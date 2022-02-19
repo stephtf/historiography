@@ -1,5 +1,6 @@
 {{#if loggedIn}}
 <div>welcome back, {{userIn}}!</div>
+<div>your user id is: {{user_id}}</div>
 {{else}}
 <div>{{userIn}} is not currently logged in</div>
 {{/if}}
@@ -12,13 +13,13 @@
         <a class="nav-link active" href="/home">home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="/home">favorites</a>
+        <a class="nav-link active" href="">my fields</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="/trash">trash</a>
       </li>
       <li class="nav-item">
-        <button class="btn btn-outline-secondary nav-link active">add new</button>
+        <button class="btn btn-outline-secondary nav-link active" id="add-new">add new</button>
       </li>
     </ul>
   </div>
@@ -26,29 +27,61 @@
 
 
 <div class="row">
-    {{!-- below is the column for the books --}}
+    {{!-- below is the column for the note stack --}}
     <div class="flex-column">
-        <div class="card select-book" style="width: 18rem;">
+        {{#each books as |book|}}
+        <div class="card select-book btn" style="width: 18rem;">
         {{!-- {{#each bookNotes as |book|}} --}}
-        <div class="card-body">
-            <h5 class="card-title">Book title</h5>
-            <p class="card-text">{{bookObject}}</p>
-        </div>
-        {{!-- {{/each}} --}}
-        </div>
-
-        <div class="card" style="width: 18rem;">
-        {{!-- {{#each bookNotes as |book|}} --}}
-        <div class="card-body select-book">
-            <h5 class="card-title">Book title</h5>
-            <p class="card-text">Some quick example text to build on the book's title and make up the bulk of the book's content.Some quick example text to build on the book's title and make up the bulk of the book's content.</p>
-        </div>
-        {{!-- {{/each}} --}}
-        </div>
+            <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <h6 class="card-text">by {{book.author}}</h6>
+            </div>
+         </div>
+         {{/each}}
     </div>
 
-{{!-- full note view --}}
+{{!-- view of individual note selected --}}
 <div class="col flex-grow-1">
+    {{!-- add a new note div --}}
+    <form>
+        <div class="form-group">
+            <label for="noteTitle">title</label>
+            <input type="title" class="form-control" id="note-title" placeholder="enter your book title">
+        </div>
+        <div class="form-group">
+            <label for="noteAuthor">author</label>
+            <input type="author" class="form-control" id="note-author" placeholder="enter the author's first and last name">
+        </div>
+        <div class="form-group">
+            <label for="noteTitle">field</label>
+            <input type="field" class="form-control" id="note-field" placeholder="field or sub-discipline">
+        </div>
+        <div class="form-group">
+            <label for="textarea">argument</label>
+            <textarea class="form-control" id="argument" rows="5" placeholder="what is the main argument?"></textarea>
+        </div>
+         <div class="form-group">
+            <label for="textarea">examples</label>
+            <textarea class="form-control" id="examples" rows="5" placeholder="identify and explain key examples from the text that reinforce the author's main argument"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="textarea">methodology</label>
+            <textarea class="form-control" id="methods" rows="5" placeholder="describe the author's methods and sources. what are their theories and frameworks? how is evidence used and sources read?"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="noteKeywords">keywords</label>
+            <input type="title" class="form-control" id="note-keywords" placeholder="list out the main keywords and concepts">
+        </div>
+            <div class="form-group">
+            <label for="textarea">significance</label>
+            <textarea class="form-control" id="significance" rows="5" placeholder="what interventions does this book make and in which fields? what is unique about the argument, evidence, methods, or sources? why is this book significant, or why not?"></textarea>
+        </div>
+        <div class="text-center">
+             <button class="btn btn-outline-primary" type="submit">save note</button>
+        </div>
+    </form>
+
+    {{!-- nav bar for note displayed --}}
     <nav id="navbar-example2" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <h2>Title of the book</h2>
@@ -56,7 +89,7 @@
     {{!-- dropdown menu for full note view --}}
         <ul class="nav nav-pills">    
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">note menu</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#one">keywords</a>
                 <a class="dropdown-item" href="#two">methods and sources</a>
@@ -67,6 +100,8 @@
         </ul>
     </nav>
 
+{{!-- individual book note --}}
+{{#if bookNote}}
     <div style="overflow-y:scroll;" class="col">
         <h4 id="fat">argument</h4>
         <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
@@ -84,8 +119,10 @@
         <h4 id="three">significance</h4>
         <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat. Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat</p>
     </div>
+    {{/if}}
 </div>
         {{!-- below is the container for the new note/notes --}}
 </div>
 
 
+<script src="js/bookNote.js"></script>

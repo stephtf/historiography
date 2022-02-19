@@ -15,6 +15,8 @@
         <a href ="/" class="m-2"><h1>historiography</h1></a>
         {{#if loggedIn}}
          <a href="" id="logout-button" class="m-2">log out</a>
+        {{else}}
+        <a href="/" class="m-2">log in</a>
         {{/if}}
     </nav>
     {{{ body }}} 

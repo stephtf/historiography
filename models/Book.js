@@ -5,13 +5,13 @@ class Book extends Model {}
 
 Book.init({
     field: {
-        type: DataTypes.STRING, 
+        type: DataTypes.TEXT, 
     },
     title: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     author: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     argument: {
         type: DataTypes.TEXT,
@@ -20,7 +20,7 @@ Book.init({
         type: DataTypes.TEXT,
     },
     keywords: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     methods: {
         type: DataTypes.TEXT,

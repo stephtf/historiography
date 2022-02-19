@@ -2,3 +2,7 @@
 .select-book:hover {
     background-color: rgb(244, 248, 249);
 }
+
+#add-new:hover {
+    background-color: rgb(74, 122, 227);
+}

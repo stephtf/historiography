@@ -21,8 +21,9 @@ const signupForm = async (event) => {
         });
     
         if (addUser.ok) {
+            alert(`account successfully created. please log in!`);
             // if successful, redirect the browser to the homepage
-            document.location.replace('/home');
+            document.location.replace('/');
         } else {
             alert(`username already exists!`);
         }

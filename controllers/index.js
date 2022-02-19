@@ -1,6 +1,6 @@
 const Book = require('../models/Book');
-
 const app = require('express').Router(); 
+
 
 // localhost:3001 (login)
 app.get('/', (req, res) => {
@@ -25,13 +25,16 @@ app.get('/signup', (req, res) => {
 // localhost:3001/home (home page or dashboard when user is logged in)
 app.get('/home', async (req, res) => {
 	try {
-		const bookData = await Book.findAll();
+		const bookData = await Book.findAll({
+			where: { user_id: req.session.user_id }
+		});
 		const books = bookData.map((book) => book.get({plain:true}));
-		res.render('home', { bookObject: books,
+		res.render('home', { 
+			books,
 			loggedIn: req.session.loggedIn,
 			userIn: req.session.username,
+			user_id: req.session.user_id,
 		});
-		console.log(books);
 	  } catch (err) {
 		res.status(500).json(err);              
 	  }

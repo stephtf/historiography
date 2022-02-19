@@ -1,8 +1,17 @@
 /* user homepage */
+.select-book {
+    background-color: rgb(235, 239, 244);
+}
+
 .select-book:hover {
     background-color: rgb(244, 248, 249);
 }
 
 #add-new:hover {
     background-color: rgb(74, 122, 227);
+}
+
+.note-box-container {
+    width: 273px;
+    background-color: rgb(244, 246, 249);
 }

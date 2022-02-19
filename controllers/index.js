@@ -54,9 +54,10 @@ app.get('/add', (req, res) => {
 	
 // localhost:3001/about (about page, which is linked on the login page)
 app.get('/about', (req, res) => {
-	// res.send('Hello this the about page for the website!');
-	try {
-		res.render('about');
+	try {		
+		res.render('about', {
+			loggedIn: req.session.loggedIn,
+		})
 	  } catch (err) {
 		res.status(500).json(err);              
 	  }

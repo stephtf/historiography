@@ -25,11 +25,6 @@ app.get('/signup', (req, res) => {
 // localhost:3001/home (home page or dashboard when user is logged in)
 app.get('/home', async (req, res) => {
 	try {
-		// console.log(req.session);
-		// res.render('home', {
-			
-		// });
-
 		const bookData = await Book.findAll();
 		const books = bookData.map((book) => book.get({plain:true}));
 		res.render('home', { bookObject: books,

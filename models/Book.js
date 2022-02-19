@@ -14,19 +14,19 @@ Book.init({
         type: DataTypes.STRING,
     },
     argument: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     examples: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     keywords: {
         type: DataTypes.STRING,
     },
     methods: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     significance: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
     },
     user_id: {
         type: DataTypes.INTEGER,

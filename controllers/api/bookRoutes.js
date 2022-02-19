@@ -1,8 +1,8 @@
 const app = require('express').Router(); 
 const Book = require('../../models/Book');
 
-// the url is localhost:3001/api/books
 // get route to grab books from the database 
+// localhost:3001/api/books
 app.get('/', async (req, res) => {
 	// res.json('Hello this the route for book DATA');
 	await Book.findAll().then((bookData) => {
@@ -10,8 +10,8 @@ app.get('/', async (req, res) => {
 	});
 });
 
-// the url is localhost: 3001/api/books
 // post route to add books to the database 
+// localhost:3001/api/books
 app.post('/', (req, res) => {
 	Book.create({
 		field: req.body.field,

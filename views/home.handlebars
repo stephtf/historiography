@@ -35,6 +35,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                 <h6 class="card-text">by {{book.author}}</h6>
+                <p>{{book.id}}</p>
             </div>
          </div>
          {{/each}}
@@ -58,15 +59,15 @@
         </div>
         <div class="form-group">
             <label for="textarea">argument</label>
-            <textarea class="form-control" id="argument" rows="5" placeholder="what is the main argument?"></textarea>
+            <textarea class="form-control" id="note-argument" rows="5" placeholder="what is the main argument?"></textarea>
         </div>
          <div class="form-group">
             <label for="textarea">examples</label>
-            <textarea class="form-control" id="examples" rows="5" placeholder="identify and explain key examples from the text that reinforce the author's main argument"></textarea>
+            <textarea class="form-control" id="note-examples" rows="5" placeholder="identify and explain key examples from the text that reinforce the author's main argument"></textarea>
         </div>
         <div class="form-group">
             <label for="textarea">methodology</label>
-            <textarea class="form-control" id="methods" rows="5" placeholder="describe the author's methods and sources. what are their theories and frameworks? how is evidence used and sources read?"></textarea>
+            <textarea class="form-control" id="note-methods" rows="5" placeholder="describe the author's methods and sources. what are their theories and frameworks? how is evidence used and sources read?"></textarea>
         </div>
         <div class="form-group">
             <label for="noteKeywords">keywords</label>
@@ -74,18 +75,18 @@
         </div>
             <div class="form-group">
             <label for="textarea">significance</label>
-            <textarea class="form-control" id="significance" rows="5" placeholder="what interventions does this book make and in which fields? what is unique about the argument, evidence, methods, or sources? why is this book significant, or why not?"></textarea>
+            <textarea class="form-control" id="note-significance" rows="5" placeholder="what interventions does this book make and in which fields? what is unique about the argument, evidence, methods, or sources? why is this book significant, or why not?"></textarea>
         </div>
         <div class="text-center">
-             <button class="btn btn-outline-primary" type="submit">save note</button>
+             <button class="btn btn-outline-primary" id="save-note" type="submit">save note</button>
         </div>
     </form>
 
     {{!-- nav bar for note displayed --}}
     <nav id="navbar-example2" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <h2>Title of the book</h2>
-      <h3>author's name</h3></a>
+      <h2>book title</h2>
+      <h3>author name</h3></a>
     {{!-- dropdown menu for full note view --}}
         <ul class="nav nav-pills">    
             <li class="nav-item dropdown">
@@ -101,25 +102,13 @@
     </nav>
 
 {{!-- individual book note --}}
-{{#if bookNote}}
     <div style="overflow-y:scroll;" class="col">
-        <h4 id="fat">argument</h4>
-        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
-        </p>
-        <h4 id="mdo">examples</h4>
-        <p>
-            Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
-        </p>
-        <h4 id="one">keywords</h4>
-        <p>
-        Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
-        </p>
-        <h4 id="two">methods and sources</h4>
-        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
-        <h4 id="three">significance</h4>
-        <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat. Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat</p>
+        <h4 id="argument-text">argument</h4>
+        <h4 id="example-text">examples</h4>
+        <h4 id="keyword-text">keywords</h4>
+        <h4 id="methods-text">methods and sources</h4>
+        <h4 id="significance-text">significance</h4>
     </div>
-    {{/if}}
 </div>
         {{!-- below is the container for the new note/notes --}}
 </div>

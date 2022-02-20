@@ -85,8 +85,9 @@
     {{!-- nav bar for displayed note --}}
     <nav id="navbar-example2" class="navbar navbar-light bg-light mt-3">
     <a class="navbar-brand" href="#">
-      <h2>book title</h2>
-      <h3>author name</h3></a>
+      <h2 id="bookTitle">book title</h2>
+      <h3 id="authorName">author name</h3>
+    </a>
     {{!-- dropdown menu for full note view --}}
         <ul class="nav nav-pills">    
             <li class="nav-item dropdown">
@@ -103,11 +104,13 @@
 
 {{!-- displayed book note --}}
     <div style="overflow-y:scroll;" class="col">
-        <h4 id="argument-text">argument</h4>
-        <h4 id="example-text">examples</h4>
-        <h4 id="keyword-text">keywords</h4>
+        <h4>argument</h4>
+        <p id="argument-text"></p>
+        <h4>examples</h4>
+        <p id="example-text"></p>
+        {{!-- <h4 id="keyword-text">keywords</h4>
         <h4 id="methods-text">methods and sources</h4>
-        <h4 id="significance-text">significance</h4>
+        <h4 id="significance-text">significance</h4> --}}
     </div>
 </div>
         {{!-- below is the container for the new note/notes --}}

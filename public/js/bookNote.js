@@ -10,6 +10,8 @@ const newKeywords = document.getElementById('note-keywords');
 const newSignificance = document.getElementById('note-significance');
 
 // divs where the selected note will be appended
+const titleBox = document.getElementById('bookTitle');
+const authorName = document.getElementById('authorName');
 const argumentBox = document.getElementById('argument-text');
 const examplesBox = document.getElementById('example-text');
 const keywordBox = document.getElementById('keyword-text');
@@ -45,6 +47,8 @@ const saveNoteFunction = () => {
     .then((res) => res.json())
     .then((newNote) => {
      console.log(newNote);
+
+
     })
     .catch(err => {
         console.error(err);
@@ -53,19 +57,6 @@ const saveNoteFunction = () => {
 
 
 const displayNote = (myId) => {
-    // const noteId = document.querySelectorAll('.select-book');
-    // console.log(noteId);
-
-    // for(i=0; i<noteId.length; i++) {
-    //    let noteIdSingular = noteId[i].getAttribute('id');
-    //     console.log(noteIdSingular);
-    
-
-    // if(noteId) {
-    //     let selectedBookId = noteId.getAttribute('id');
-    //     console.log(selectedBookId);
-
-   
    
     fetch(`/api/books/${myId}`, {
         "method": 'GET',
@@ -75,6 +66,15 @@ const displayNote = (myId) => {
     })
     .then(bookData => {
         console.log(bookData);
+        titleBox.textContent = bookData.title;
+        authorName.textContent = `by ${bookData.author}`;
+        argumentBox.textContent = bookData.argument;
+        examplesBox.textContent = bookData.examples;
+
+
+ 
+        
+   
     })
     .catch(err => {
         console.error(err);

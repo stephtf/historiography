@@ -52,11 +52,22 @@ const saveNoteFunction = () => {
 }
 
 
-const displayNote = () => {
-    const noteId = document.getElementById('.select-book').getAttribute("id");
-    console.log(noteId);
+const displayNote = (myId) => {
+    // const noteId = document.querySelectorAll('.select-book');
+    // console.log(noteId);
 
-    fetch(`/api/books/${noteId}`, {
+    // for(i=0; i<noteId.length; i++) {
+    //    let noteIdSingular = noteId[i].getAttribute('id');
+    //     console.log(noteIdSingular);
+    
+
+    // if(noteId) {
+    //     let selectedBookId = noteId.getAttribute('id');
+    //     console.log(selectedBookId);
+
+   
+   
+    fetch(`/api/books/${myId}`, {
         "method": 'GET',
     })
     .then(response => {
@@ -69,13 +80,16 @@ const displayNote = () => {
         console.error(err);
     }); 
     console.log("does this button work?");
-}
+    }
+
+
 
 // for loop to call displayNote function when any noteBox button is clicked
 for (let i = 0; i < noteBoxes.length; i++) {
-    noteBoxes[i].setAttribute("id", `${i}`)
+    // noteBoxes[i].setAttribute("id", `${i}`)
     noteBoxes[i].addEventListener('click', () => {
-        displayNote(); 
+        let myId = noteBoxes[i].getAttribute('id')
+        displayNote(myId); 
     })
 }
 

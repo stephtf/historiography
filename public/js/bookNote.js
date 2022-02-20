@@ -1,3 +1,4 @@
+
 // new note data from form
 const newTitle = document.getElementById('note-title');
 const newAuthor = document.getElementById('note-author');
@@ -21,18 +22,6 @@ const noteBoxes = document.getElementsByClassName('select-book'
 );
 
 
-// const newNote = {
-//     field: newField.value,
-//     title: newTitle.value,
-//     author: newAuthor.value,
-//     argument: newArgument.value,
-//     examples: newExamples.value,
-//     keywords: newKeywords.value,
-//     methods: newMethodology.value,
-//     significance: newSignificance.value
-// };
-
-
 const saveNoteFunction = () => {
     const newNote = {
         field: newField.value,
@@ -42,7 +31,8 @@ const saveNoteFunction = () => {
         examples: newExamples.value,
         keywords: newKeywords.value,
         methods: newMethodology.value,
-        significance: newSignificance.value
+        significance: newSignificance.value,
+        // user_id: ,
     };
 
     fetch('/api/books', {
@@ -96,6 +86,7 @@ saveNote.addEventListener('click', () => {
     console.log(newKeywords.value);
     console.log(newMethodology.value);
     console.log(newSignificance.value);
+    console.log(user_id);
 })
 
 

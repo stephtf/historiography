@@ -20,15 +20,16 @@ const saveNote = document.getElementById('save-note');
 const noteBoxes = document.getElementsByClassName('select-book'
 );
 
+
 const newNote = {
-    "field": newField.value,
-    "title": newTitle.value,
-    "author": newAuthor.value,
-    "argument": newArgument.value,
-    "examples": newExamples.value,
-    "keywords": newKeywords.value,
-    "methods": newMethodology.value,
-    "significance": newSignificance.value
+    field: newField.value,
+    title: newTitle.value,
+    author: newAuthor.value,
+    argument: newArgument.value,
+    examples: newExamples.value,
+    keywords: newKeywords.value,
+    methods: newMethodology.value,
+    significance: newSignificance.value
 };
 
 const saveNoteFunction = () => {
@@ -75,11 +76,15 @@ for (let i = 0; i < noteBoxes.length; i++) {
 // calls the save note function
 saveNote.addEventListener('click', () => {
     saveNoteFunction();
-    console.log(newSignificance.value);
     console.log(newField.value);
     console.log(newTitle.value);
     console.log(newAuthor.value);
     console.log(newArgument.value);
-    console.log('string');
+    console.log(newExamples.value);
+    console.log(newKeywords.value);
+    console.log(newMethodology.value);
+    console.log(newSignificance.value);
     console.log(newNote);
 })
+
+

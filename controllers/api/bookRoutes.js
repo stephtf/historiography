@@ -62,4 +62,15 @@ app.put('/:id', async (req, res) => {
     }
 }); 
 
+// delete a book note by its id 
+// localhost:3001/api/books/:_id
+app.delete('/:id', async (req, res) => {
+    try {
+        const deletedBook = await Book.destroy({ where: {id: req.params.id }});
+        res.status(200).json(deletedBook);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}); 
+
 module.exports = app;

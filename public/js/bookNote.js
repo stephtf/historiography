@@ -21,18 +21,30 @@ const noteBoxes = document.getElementsByClassName('select-book'
 );
 
 
-const newNote = {
-    field: newField.value,
-    title: newTitle.value,
-    author: newAuthor.value,
-    argument: newArgument.value,
-    examples: newExamples.value,
-    keywords: newKeywords.value,
-    methods: newMethodology.value,
-    significance: newSignificance.value
-};
+// const newNote = {
+//     field: newField.value,
+//     title: newTitle.value,
+//     author: newAuthor.value,
+//     argument: newArgument.value,
+//     examples: newExamples.value,
+//     keywords: newKeywords.value,
+//     methods: newMethodology.value,
+//     significance: newSignificance.value
+// };
+
 
 const saveNoteFunction = () => {
+    const newNote = {
+        field: newField.value,
+        title: newTitle.value,
+        author: newAuthor.value,
+        argument: newArgument.value,
+        examples: newExamples.value,
+        keywords: newKeywords.value,
+        methods: newMethodology.value,
+        significance: newSignificance.value
+    };
+
     fetch('/api/books', {
         method: 'POST',
         headers: {
@@ -84,7 +96,6 @@ saveNote.addEventListener('click', () => {
     console.log(newKeywords.value);
     console.log(newMethodology.value);
     console.log(newSignificance.value);
-    console.log(newNote);
 })
 
 

@@ -53,7 +53,10 @@ const saveNoteFunction = () => {
 
 
 const displayNote = () => {
-    fetch('/api/books', {
+    const noteId = document.getElementById('.select-book').getAttribute("id");
+    console.log(noteId);
+
+    fetch(`/api/books/${noteId}`, {
         "method": 'GET',
     })
     .then(response => {
@@ -70,6 +73,7 @@ const displayNote = () => {
 
 // for loop to call displayNote function when any noteBox button is clicked
 for (let i = 0; i < noteBoxes.length; i++) {
+    noteBoxes[i].setAttribute("id", `${i}`)
     noteBoxes[i].addEventListener('click', () => {
         displayNote(); 
     })

@@ -1,6 +1,6 @@
 {{#if loggedIn}}
-<div>welcome back, {{userIn}}!</div>
-<div">your user id is: {{user_id}}</div>
+<div class='ml-4'>welcome back, {{userIn}}!</div>
+<div class="ml-4 mb-2">your user id is: {{user_id}}</div>
 {{else}}
 <div>{{userIn}} is not currently logged in</div>
 {{/if}}
@@ -30,19 +30,19 @@
     {{!-- below is the column for the note stack --}}
     <div class="flex-column note-box-container">
         {{#each books as |book|}}
-        <div class="card select-book btn" style="width: 273px">
+        <div class="card select-book btn" style="width: 273px" id={{book.id}}>
         {{!-- {{#each bookNotes as |book|}} --}}
             <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                 <h6 class="card-text">by {{book.author}}</h6>
-                <p>{{book.id}}</p>
+                <button value={{book.id}} class="btn">click me</button>
             </div>
          </div>
          {{/each}}
     </div>
 
 {{!-- view of individual note selected --}}
-<div class="col flex-grow-1">
+<div class="col flex-grow-1 mr-3 mt-4">
     {{!-- add a new note div --}}
     <form>
         <div class="form-group">
@@ -82,8 +82,8 @@
         </div>
     </form>
 
-    {{!-- nav bar for note displayed --}}
-    <nav id="navbar-example2" class="navbar navbar-light bg-light">
+    {{!-- nav bar for displayed note --}}
+    <nav id="navbar-example2" class="navbar navbar-light bg-light mt-3">
     <a class="navbar-brand" href="#">
       <h2>book title</h2>
       <h3>author name</h3></a>
@@ -101,7 +101,7 @@
         </ul>
     </nav>
 
-{{!-- individual book note --}}
+{{!-- displayed book note --}}
     <div style="overflow-y:scroll;" class="col">
         <h4 id="argument-text">argument</h4>
         <h4 id="example-text">examples</h4>

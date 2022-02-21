@@ -23,9 +23,9 @@ const saveNote = document.getElementById('save-note');
 const noteBoxes = document.getElementsByClassName('select-book'
 );
 
-// to grab user id from form 
+// to grab user id to save to form input data 
 const myuserId = document.getElementsByClassName('getId')[0];
-const myUser = myuserId.getAttribute('id');
+const myUser = myuserId.getAttribute('value');
 
 const saveNoteFunction = (myUser) => {
     const newNote = {
@@ -97,3 +97,9 @@ saveNote.addEventListener('click', () => {
 })
 
 
+const addBtn = document.getElementById('add-new');
+// const displayedNote = document.getElementsByClassName('displayed-note-container');
+addBtn.addEventListener('click', () => {
+        myuserId.classList.toggle("active");
+        displayedNote.style.display = "none";
+});

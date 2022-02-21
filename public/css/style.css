@@ -21,3 +21,13 @@ p {
     background-color: rgb(244, 246, 249);
 }
 
+
+/* add new note button */
+.getId {
+    display: none;
+}
+
+.getId.active {
+    display: flex;
+    flex-direction: column;
+}

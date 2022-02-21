@@ -19,7 +19,7 @@
         <a class="nav-link active" href="/trash">trash</a>
       </li>
       <li class="nav-item">
-        <button class="btn btn-outline-secondary nav-link active" id="add-new">add new</button>
+        <a class="btn btn-outline-secondary nav-link active" id="add-new">add new</a>
       </li>
     </ul>
   </div>
@@ -43,7 +43,7 @@
 
 <div class="col flex-grow-1 mr-3 mt-4">
     {{!-- add a new note div --}}
-    <form id={{user_id}} class="getId">
+    <form value={{user_id}} class="getId">
         <div class="form-group">
             <label for="noteTitle">title</label>
             <input type="title" class="form-control" id="note-title" placeholder="enter your book title">
@@ -81,6 +81,7 @@
         </div>
     </form>
 
+<div class="displayed-note-container"
     {{!-- nav bar for displayed note --}}
     <nav id="navbar-example2" class="navbar navbar-light bg-light mt-3">
     <a class="navbar-brand" href="#">
@@ -116,11 +117,7 @@
     </div>
 </div>
 </div>
+</div>
 
-{{> add}}
-
-<a href="/add" class="m-2 btn" id="addBtn">add</a>
-
-<a href="/test" class="m-2 btn" id="testBtn">test</a> 
 
 <script src="js/bookNote.js"></script>

@@ -29,6 +29,9 @@ app.get('/home', async (req, res) => {
 			where: { user_id: req.session.user_id }
 		});
 		const books = bookData.map((book) => book.get({plain:true}));
+
+		
+
 		res.render('home', { 
 			books,
 			loggedIn: req.session.loggedIn,

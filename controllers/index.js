@@ -51,6 +51,16 @@ app.get('/add', (req, res) => {
 	  }
 	});
 
+// localhost:3001/add (add new books)
+app.get('/test', (req, res) => {
+	try {
+		res.render('test');
+	  } catch (err) {
+		res.status(500).json(err);              
+	  }
+	});
+
+
 	
 // localhost:3001/about (about page, which is linked on the login page)
 app.get('/about', (req, res) => {

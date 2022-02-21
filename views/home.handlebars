@@ -41,10 +41,10 @@
          {{/each}}
     </div>
 
-{{!-- view of individual note selected --}}
+
 <div class="col flex-grow-1 mr-3 mt-4">
     {{!-- add a new note div --}}
-    <form>
+    <form id={{user_id}} class="getId">
         <div class="form-group">
             <label for="noteTitle">title</label>
             <input type="title" class="form-control" id="note-title" placeholder="enter your book title">
@@ -108,12 +108,14 @@
         <p id="argument-text"></p>
         <h4>examples</h4>
         <p id="example-text"></p>
-        {{!-- <h4 id="keyword-text">keywords</h4>
-        <h4 id="methods-text">methods and sources</h4>
-        <h4 id="significance-text">significance</h4> --}}
+        <h4>methods and sources</h4>
+        <p id="methods-text"></p>
+        <h4>keywords</h4>
+        <p id="keyword-text"></p>
+        <h4>significance</h4>
+        <p id="significance-text"></p>
     </div>
 </div>
-        {{!-- below is the container for the new note/notes --}}
 </div>
 
 

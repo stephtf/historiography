@@ -96,15 +96,6 @@ for (let i = 0; i < noteBoxes.length; i++) {
 // calls the save note function
 saveNote.addEventListener('click', () => {
     saveNoteFunction();
-    console.log(newField.value);
-    console.log(newTitle.value);
-    console.log(newAuthor.value);
-    console.log(newArgument.value);
-    console.log(newExamples.value);
-    console.log(newKeywords.value);
-    console.log(newMethodology.value);
-    console.log(newSignificance.value);
-    console.log(user_id);
 })
 
 

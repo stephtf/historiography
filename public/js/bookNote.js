@@ -23,8 +23,11 @@ const saveNote = document.getElementById('save-note');
 const noteBoxes = document.getElementsByClassName('select-book'
 );
 
+// to grab user id from form 
+const myuserId = document.getElementsByClassName('getId')[0];
+const myUser = myuserId.getAttribute('id');
 
-const saveNoteFunction = () => {
+const saveNoteFunction = (myUser) => {
     const newNote = {
         field: newField.value,
         title: newTitle.value,
@@ -34,7 +37,7 @@ const saveNoteFunction = () => {
         keywords: newKeywords.value,
         methods: newMethodology.value,
         significance: newSignificance.value,
-        // user_id: ,
+        user_id: myUser
     };
 
     fetch('/api/books', {
@@ -70,11 +73,6 @@ const displayNote = (myId) => {
         authorName.textContent = `by ${bookData.author}`;
         argumentBox.textContent = bookData.argument;
         examplesBox.textContent = bookData.examples;
-
-
- 
-        
-   
     })
     .catch(err => {
         console.error(err);
@@ -95,7 +93,7 @@ for (let i = 0; i < noteBoxes.length; i++) {
 
 // calls the save note function
 saveNote.addEventListener('click', () => {
-    saveNoteFunction();
+    saveNoteFunction(myUser);
 })
 
 

@@ -22,6 +22,9 @@ const saveNote = document.getElementById('save-note');
 // note boxes
 const noteBoxes = document.getElementsByClassName('select-book'
 );
+const deleteBtn = document.getElementById('delete-note');
+const editBtn = document.getElementById('edit-note');
+const importantBtn = document.getElementById('important-note');
 
 // to grab user id to save to form input data 
 const myuserId = document.getElementsByClassName('getId')[0];
@@ -59,9 +62,9 @@ const saveNoteFunction = (myUser) => {
 }
 
 
-const displayNote = (myId) => {
+const displayNote = (bookId) => {
    
-    fetch(`/api/books/${myId}`, {
+    fetch(`/api/books/${bookId}`, {
         "method": 'GET',
     })
     .then(response => {
@@ -81,13 +84,64 @@ const displayNote = (myId) => {
     }
 
 
+const deleteNoteFunction = (bookId) => {
+
+    fetch(`/api/books/${bookId}`, {
+        "method": 'DELETE',
+    })
+    .then(response => {
+        return response.json();
+        
+    })
+    .then(bookData => {
+        console.log(bookData);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+}
+
+// const editNoteFunction = (bookId) => {
+
+//     fetch(`/api/books/${bookId}`, {
+//         "method": 'PUT',
+//     })
+//     .then(response => {
+//         return response.json();
+        
+//     })
+//     .then(bookData => {
+//         console.log(bookData);
+//     })
+//     .catch(err => {
+//         console.error(err);
+//     })
+// }
+
+
 
 // for loop to call displayNote function when any noteBox button is clicked
 for (let i = 0; i < noteBoxes.length; i++) {
-    // noteBoxes[i].setAttribute("id", `${i}`)
     noteBoxes[i].addEventListener('click', () => {
-        let myId = noteBoxes[i].getAttribute('id')
-        displayNote(myId); 
+        let bookId = noteBoxes[i].getAttribute('id')
+        displayNote(bookId); 
+
+        deleteBtn.addEventListener('click', () => {
+            deleteNoteFunction(bookId);
+            location.reload();
+        }) 
+
+        // editBtn.addEventListener('click', () => {
+        //     editNoteFunction(bookId);
+        //     location.reload();
+        // }) 
+
+
+     
+        importantBtn.addEventListener('click', () => {
+            // noteBoxes[i].style.color = "blue";
+         
+        })
     })
 }
 
@@ -98,8 +152,10 @@ saveNote.addEventListener('click', () => {
 
 
 const addBtn = document.getElementById('add-new');
-// const displayedNote = document.getElementsByClassName('displayed-note-container');
+const displayedNote = document.getElementsByClassName('displayed-note-container')[0];
 addBtn.addEventListener('click', () => {
         myuserId.classList.toggle("active");
-        displayedNote.style.display = "none";
 });
+
+
+

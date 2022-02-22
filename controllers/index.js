@@ -30,10 +30,11 @@ app.get('/home', async (req, res) => {
 		});
 		const books = bookData.map((book) => book.get({plain:true}));
 
-		
+		const firstBook = bookData[0].get({plain:true}); 
 
 		res.render('home', { 
 			books,
+			firstBook,
 			loggedIn: req.session.loggedIn,
 			userIn: req.session.username,
 			user_id: req.session.user_id,

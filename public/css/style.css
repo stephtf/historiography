@@ -30,4 +30,6 @@ p {
 .getId.active {
     display: flex;
     flex-direction: column;
+
 }
+

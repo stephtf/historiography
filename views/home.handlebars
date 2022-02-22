@@ -10,7 +10,7 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link active" href="/home">home</a>
+        <a class="nav-link active" href="/home">all notes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="">my fields</a>
@@ -41,7 +41,7 @@
     </div>
 
 
-<div class="col flex-grow-1 mr-3 mt-4">
+<div class="col flex-grow-1 mt-4">
     {{!-- add a new note div --}}
     <form value={{user_id}} class="getId">
         <div class="form-group">
@@ -81,39 +81,42 @@
         </div>
     </form>
 
-<div class="displayed-note-container"
-    {{!-- nav bar for displayed note --}}
-    <nav id="navbar-example2" class="navbar navbar-light bg-light mt-3">
+{{!-- displayed note --}}
+<div class="displayed-note-container" style="overflow-y:scroll;">
+    <nav id="navbar-example2" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <h2 id="bookTitle">book title</h2>
-      <h3 id="authorName">author name</h3>
+      <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>
+      <h3 id="authorName">by {{firstBook.author}}</h3>
     </a>
-    {{!-- dropdown menu for full note view --}}
-        <ul class="nav nav-pills">    
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">note menu</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#one">keywords</a>
-                <a class="dropdown-item" href="#two">methods and sources</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#three">significance and critique</a>
-            </div>
-            </li>
-        </ul>
+    {{!-- dropdown for full note view --}}
+
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            {{!-- <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> --}}
+            <li><a class="dropdown-item" href="#" id="delete-note">delete note</a></li>
+            <li><a class="dropdown-item" href="#">mark *important*</a></li>
+          </ul>
+        </li>
+    </ul>
+
     </nav>
 
 {{!-- displayed book note --}}
-    <div style="overflow-y:scroll;" class="col">
+    <div class="col">
         <h4>argument</h4>
-        <p id="argument-text"></p>
+        <p id="argument-text">{{firstBook.argument}}</p>
         <h4>examples</h4>
-        <p id="example-text"></p>
+        <p id="example-text">{{firstBook.examples}}</p>
         <h4>methods and sources</h4>
-        <p id="methods-text"></p>
+        <p id="methods-text">{{firstBook.methods}}</p>
         <h4>keywords</h4>
-        <p id="keyword-text"></p>
+        <p id="keyword-text">{{firstBook.keywords}}</p>
         <h4>significance</h4>
-        <p id="significance-text"></p>
+        <p id="significance-text">{{firstBook.significance}}</p>
     </div>
 </div>
 </div>
@@ -121,3 +124,6 @@
 
 
 <script src="js/bookNote.js"></script>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

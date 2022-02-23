@@ -15,7 +15,7 @@ const loginForm = async (event) => {
         });
 
     if(userEntry.ok) {
-        document.location.replace('/home');
+        location.replace('/home');
     } else {
         alert('username and/or password incorrect');
     }

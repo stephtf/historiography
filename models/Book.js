@@ -6,6 +6,7 @@ class Book extends Model {}
 Book.init({
     field: {
         type: DataTypes.TEXT, 
+        // primaryKey: true, 
     },
     title: {
         type: DataTypes.TEXT,

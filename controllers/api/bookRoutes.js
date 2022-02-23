@@ -10,7 +10,7 @@ app.get('/', async (req, res) => {
 });
 
 // get route to grab one book from database
-// localhost:3001/api/books
+// localhost:3001/api/books/:id
 app.get('/:id', async (req, res) => {
 	try {
 		const oneBook = await Book.findOne({ where: { id: req.params.id }});
@@ -20,6 +20,25 @@ app.get('/:id', async (req, res) => {
 	}
 	});
 
+
+// get route to grab all books of the same field
+// localhost:3001/api/books/:field
+app.get('/allbooks/:field',  (req, res) => {
+
+		Book.findAll({ where: { field: req.params.field }})
+		.then((bookData) => {
+			res.json(bookData);
+		  });
+		});
+
+	// app.get('/:field', async (req, res) => {
+	// 	try {
+	// 		const fieldBooks = await Book.findAll({ where: { field: req.params.field }});
+	// 		res.status(200).json(fieldBooks);
+	// 	} catch (err) {
+	// 		res.status(500).json(err);
+	// 	}
+	// 	});
 
 // post route to add books to the database 
 // localhost:3001/api/books

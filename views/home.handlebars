@@ -20,8 +20,13 @@
         <a class="nav-link active" href="">my fields</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" id="delete-note" href="">delete note</a>
+        {{! <a class="nav-link active" id="important-note" href="">mark important</a> }}
+        <a class="nav-link active" href="#" id="important-note">highlight</a>
       </li>
+
+      {{! <li class="nav-item">
+        <a class="nav-link active" id="delete-note" href="">delete note</a>
+      </li> }}
 
     </ul>
   </div>
@@ -41,35 +46,38 @@
     {{/each}}
   </div>
 
-  <div class="col flex-grow-1 pl-0">
+  <div class="col flex-grow-1 pl-0 mb-4">
     {{! add a new note div }}
-    <form value={{user_id}} class="getId">
+    <form value={{user_id}} class="getId pl-4 mt-4 mr-4">
       <div class="form-group">
         <label for="noteTitle">title</label>
-        <input
+        <textarea
           type="title"
           class="form-control"
           id="note-title"
+          rows="1"
           placeholder="enter your book title"
-        />
+        ></textarea>
       </div>
       <div class="form-group">
         <label for="noteAuthor">author</label>
-        <input
+        <textarea
           type="author"
           class="form-control"
           id="note-author"
+          rows="1"
           placeholder="enter the author's first and last name"
-        />
+        ></textarea>
       </div>
       <div class="form-group">
         <label for="noteTitle">field</label>
-        <input
+        <textarea
           type="field"
           class="form-control"
           id="note-field"
+          rows="1"
           placeholder="field or sub-discipline"
-        />
+        ></textarea>
       </div>
       <div class="form-group">
         <label for="textarea">argument</label>
@@ -100,12 +108,13 @@
       </div>
       <div class="form-group">
         <label for="noteKeywords">keywords</label>
-        <input
+        <textarea
           type="title"
           class="form-control"
           id="note-keywords"
+          rows="1"
           placeholder="list out the main keywords and concepts"
-        />
+        ></textarea>
       </div>
       <div class="form-group">
         <label for="textarea">significance</label>
@@ -117,11 +126,7 @@
         ></textarea>
       </div>
       <div class="text-center">
-        <button
-          class="btn btn-outline-primary"
-          id="save-note"
-          type="submit"
-        >save note</button>
+        <button class="btn btn-outline-primary" id="save-note" type="submit">save note</button>
       </div>
     </form>
 
@@ -133,7 +138,6 @@
           <h3 id="authorName">by {{firstBook.author}}</h3>
         </a>
         {{! dropdown for full note view }}
-
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a
@@ -144,24 +148,22 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Menu
+              delete note
             </a>
             <ul
               class="dropdown-menu dropdown-menu-dark"
               aria-labelledby="navbarDarkDropdownMenuLink"
             >
               {{! <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> }}
-              <li><a class="dropdown-item" href="#" ">delete note</a></li>
-              <li><a class="dropdown-item" href="#" id="important-note">mark
-                  *important*</a></li>
+              <li><a class="dropdown-item" href="#" id="delete-note">yes, delete</a></li>
+              <li><a class="dropdown-item" href="#">cancel</a></li>
             </ul>
           </li>
         </ul>
-
       </nav>
 
       {{! displayed book note }}
-      <div class="col ml-4">
+      <div class="col ml-4 mt-4">
         <h4>argument</h4>
         <p id="argument-text">{{firstBook.argument}}</p>
         <h4>examples</h4>

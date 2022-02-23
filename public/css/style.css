@@ -55,3 +55,11 @@ p {
     font-size: 20px;
     font-weight: bold;
 } */
+
+.navbar {
+    height: 150px;
+}
+
+#save-note {
+    margin-bottom: 25px;
+}

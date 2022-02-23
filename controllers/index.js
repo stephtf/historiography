@@ -32,6 +32,7 @@ app.get('/home', async (req, res) => {
 
 		const firstBook = bookData[0].get({plain:true}); 
 
+	
 		res.render('home', { 
 			books,
 			firstBook,

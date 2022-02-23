@@ -33,3 +33,20 @@ p {
 
 }
 
+.display-note-container.active {
+    display: none;
+}
+    
+.edit-note-box {
+    display: none;
+}
+
+.edit-note-box.active {
+    display: flex; 
+    flex-direction: column;
+} 
+
+.edit-text {
+    font-size: 20px;
+    font-weight: bold;
+}

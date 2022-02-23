@@ -119,7 +119,6 @@ const deleteNoteFunction = (bookId) => {
 // }
 
 
-
 // for loop to call displayNote function when any noteBox button is clicked
 for (let i = 0; i < noteBoxes.length; i++) {
     noteBoxes[i].addEventListener('click', () => {
@@ -129,19 +128,20 @@ for (let i = 0; i < noteBoxes.length; i++) {
         deleteBtn.addEventListener('click', () => {
             deleteNoteFunction(bookId);
             location.reload();
-        }) 
+        }); 
 
         // editBtn.addEventListener('click', () => {
         //     editNoteFunction(bookId);
         //     location.reload();
         // }) 
-
-
-     
+        console.log(importantBtn)
         importantBtn.addEventListener('click', () => {
-            // noteBoxes[i].style.color = "blue";
-         
-        })
+            noteBoxes[i].style.color = "blue";
+            console.log('important button');
+            console.log(importantBtn);
+        });
+        displayNoteBox[0].classList.remove("active");
+
     })
 }
 
@@ -159,3 +159,10 @@ addBtn.addEventListener('click', () => {
 
 
 
+const displayNoteBox = document.getElementsByClassName('display-note-container');
+const editNoteBox = document.getElementsByClassName('edit-note-box');
+
+editBtn.addEventListener('click', () => {
+    displayNoteBox[0].classList.toggle("active");
+    editNoteBox[0].classList.toggle("active");
+})

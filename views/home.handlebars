@@ -82,7 +82,7 @@
     </form>
 
 {{!-- displayed note --}}
-<div class="displayed-note-container" style="overflow-y:scroll;">
+<div class="display-note-container" style="overflow-y:scroll;">
     <nav id="navbar-example2" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>
@@ -96,9 +96,9 @@
             Menu
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            {{!-- <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> --}}
+            <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li>
             <li><a class="dropdown-item" href="#" id="delete-note">delete note</a></li>
-            <li><a class="dropdown-item" href="#">mark *important*</a></li>
+            <li><a class="dropdown-item" href="#" id="important-note">mark *important*</a></li>
           </ul>
         </li>
     </ul>
@@ -119,6 +119,55 @@
         <p id="significance-text">{{firstBook.significance}}</p>
     </div>
 </div>
+
+
+{{!-- EDITING A NOTE --}}
+
+{{!-- edit note box --}}
+<div class="edit-note-box" style="overflow-y:scroll;">
+    <nav id="navbar-example2" class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <p class="edit-text">Edit Title</p>
+      <h2 id="bookTitle2" class="text-wrap mb-3"><textarea class="" rows="5"> {{firstBook.title}}</textarea></h2>
+      <h3 id="authorName">by {{firstBook.author}}</h3>
+    </a>
+
+ 
+
+
+    {{!-- dropdown for editing note view --}}
+
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li>
+            <li><a class="dropdown-item" href="#" id="delete-note">delete note</a></li>
+            <li><a class="dropdown-item" href="#" id="important-note">mark *important*</a></li>
+          </ul>
+        </li>
+    </ul>
+
+    </nav>
+
+{{!-- displayed book note --}}
+    <div class="col">
+        <h4>argument</h4>
+        <p id="argument-text">{{firstBook.argument}}</p>
+        <h4>examples</h4>
+        <p id="example-text">{{firstBook.examples}}</p>
+        <h4>methods and sources</h4>
+        <p id="methods-text">{{firstBook.methods}}</p>
+        <h4>keywords</h4>
+        <p id="keyword-text">{{firstBook.keywords}}</p>
+        <h4>significance</h4>
+        <p id="significance-text">{{firstBook.significance}}</p>
+    </div>
+</div>
+
+
 </div>
 </div>
 

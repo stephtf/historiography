@@ -1,14 +1,18 @@
 {{#if loggedIn}}
-<div class='ml-4'>welcome back, {{userIn}}!</div>
-<div class="ml-4 mb-2">your user id is: {{user_id}}</div>
+  <div class="ml-3">welcome back, {{userIn}}!</div>
+  <div class="ml-3 mb-2">your user id is: {{user_id}}</div>
 {{else}}
-<div>{{userIn}} is not currently logged in</div>
+  <div>{{userIn}} is not currently logged in</div>
 {{/if}}
 
-{{!-- home menu for historiography --}}
+{{! home menu for historiography }}
 <div class="card text-center">
-  <div class="card-header">
+  <div class="card-header pl-3">
     <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="btn btn-outline-secondary nav-link active" id="add-new">add
+          new</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link active" href="/home">all notes</a>
       </li>
@@ -16,97 +20,148 @@
         <a class="nav-link active" href="">my fields</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="/trash">trash</a>
+        <a class="nav-link active" id="delete-note" href="">delete note</a>
       </li>
-      <li class="nav-item">
-        <a class="btn btn-outline-secondary nav-link active" id="add-new">add new</a>
-      </li>
+
     </ul>
   </div>
 </div>
 
-
 <div class="row">
-    {{!-- below is the column for the note stack --}}
-    <div class="flex-column note-box-container">
-        {{#each books as |book|}}
-        <div class="card select-book btn" style="width: 273px" id={{book.id}}>
+  {{! below is the column for the note stack }}
+  <div class="flex-column note-box-container">
+    {{#each books as |book|}}
+      <div class="card select-book btn" style="width: 273px" id={{book.id}}>
         {{!-- {{#each bookNotes as |book|}} --}}
-            <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <h6 class="card-text">by {{book.author}}</h6>
-            </div>
-         </div>
-         {{/each}}
-    </div>
+        <div class="card-body">
+          <h5 class="card-title">{{book.title}}</h5>
+          <h6 class="card-text">by {{book.author}}</h6>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 
-
-<div class="col flex-grow-1 pl-0">
-    {{!-- add a new note div --}}
+  <div class="col flex-grow-1 pl-0">
+    {{! add a new note div }}
     <form value={{user_id}} class="getId">
-        <div class="form-group">
-            <label for="noteTitle">title</label>
-            <input type="title" class="form-control" id="note-title" placeholder="enter your book title">
-        </div>
-        <div class="form-group">
-            <label for="noteAuthor">author</label>
-            <input type="author" class="form-control" id="note-author" placeholder="enter the author's first and last name">
-        </div>
-        <div class="form-group">
-            <label for="noteTitle">field</label>
-            <input type="field" class="form-control" id="note-field" placeholder="field or sub-discipline">
-        </div>
-        <div class="form-group">
-            <label for="textarea">argument</label>
-            <textarea class="form-control" id="note-argument" rows="5" placeholder="what is the main argument?"></textarea>
-        </div>
-         <div class="form-group">
-            <label for="textarea">examples</label>
-            <textarea class="form-control" id="note-examples" rows="5" placeholder="identify and explain key examples from the text that reinforce the author's main argument"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="textarea">methodology</label>
-            <textarea class="form-control" id="note-methods" rows="5" placeholder="describe the author's methods and sources. what are their theories and frameworks? how is evidence used and sources read?"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="noteKeywords">keywords</label>
-            <input type="title" class="form-control" id="note-keywords" placeholder="list out the main keywords and concepts">
-        </div>
-            <div class="form-group">
-            <label for="textarea">significance</label>
-            <textarea class="form-control" id="note-significance" rows="5" placeholder="what interventions does this book make and in which fields? what is unique about the argument, evidence, methods, or sources? why is this book significant, or why not?"></textarea>
-        </div>
-        <div class="text-center">
-             <button class="btn btn-outline-primary" id="save-note" type="submit">save note</button>
-        </div>
+      <div class="form-group">
+        <label for="noteTitle">title</label>
+        <input
+          type="title"
+          class="form-control"
+          id="note-title"
+          placeholder="enter your book title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="noteAuthor">author</label>
+        <input
+          type="author"
+          class="form-control"
+          id="note-author"
+          placeholder="enter the author's first and last name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="noteTitle">field</label>
+        <input
+          type="field"
+          class="form-control"
+          id="note-field"
+          placeholder="field or sub-discipline"
+        />
+      </div>
+      <div class="form-group">
+        <label for="textarea">argument</label>
+        <textarea
+          class="form-control"
+          id="note-argument"
+          rows="5"
+          placeholder="what is the main argument?"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="textarea">examples</label>
+        <textarea
+          class="form-control"
+          id="note-examples"
+          rows="5"
+          placeholder="identify and explain key examples from the text that reinforce the author's main argument"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="textarea">methodology</label>
+        <textarea
+          class="form-control"
+          id="note-methods"
+          rows="5"
+          placeholder="describe the author's methods and sources. what are their theories and frameworks? how is evidence used and sources read?"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="noteKeywords">keywords</label>
+        <input
+          type="title"
+          class="form-control"
+          id="note-keywords"
+          placeholder="list out the main keywords and concepts"
+        />
+      </div>
+      <div class="form-group">
+        <label for="textarea">significance</label>
+        <textarea
+          class="form-control"
+          id="note-significance"
+          rows="5"
+          placeholder="what interventions does this book make and in which fields? what is unique about the argument, evidence, methods, or sources? why is this book significant, or why not?"
+        ></textarea>
+      </div>
+      <div class="text-center">
+        <button
+          class="btn btn-outline-primary"
+          id="save-note"
+          type="submit"
+        >save note</button>
+      </div>
     </form>
 
-{{!-- displayed note --}}
-<div class="display-note-container" style="overflow-y:scroll;">
-    <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand ml-4" href="#">
-      <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>
-      <h3 id="authorName">by {{firstBook.author}}</h3>
-    </a>
-    {{!-- dropdown for full note view --}}
+    {{! displayed note }}
+    <div class="display-note-container">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand ml-4" href="#">
+          <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>
+          <h3 id="authorName">by {{firstBook.author}}</h3>
+        </a>
+        {{! dropdown for full note view }}
 
-    <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Menu
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            {{!-- <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> --}}
-            <li><a class="dropdown-item" href="#" id="delete-note">delete note</a></li>
-            <li><a class="dropdown-item" href="#" id="important-note">mark *important*</a></li>
-          </ul>
-        </li>
-    </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Menu
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              {{! <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> }}
+              <li><a class="dropdown-item" href="#" ">delete note</a></li>
+              <li><a class="dropdown-item" href="#" id="important-note">mark
+                  *important*</a></li>
+            </ul>
+          </li>
+        </ul>
 
-    </nav>
+      </nav>
 
-{{!-- displayed book note --}}
-    <div class="col ml-4">
+      {{! displayed book note }}
+      <div class="col ml-4">
         <h4>argument</h4>
         <p id="argument-text">{{firstBook.argument}}</p>
         <h4>examples</h4>
@@ -117,14 +172,13 @@
         <p id="keyword-text">{{firstBook.keywords}}</p>
         <h4>significance</h4>
         <p id="significance-text">{{firstBook.significance}}</p>
+      </div>
     </div>
-</div>
 
+    {{! EDITING A NOTE }}
 
-{{!-- EDITING A NOTE --}}
-
-{{!-- edit note box --}}
-{{!-- <div class="edit-note-box" style="overflow-y:scroll;">
+    {{! edit note box }}
+    {{!-- <div class="edit-note-box" style="overflow-y:scroll;">
     <nav id="navbar-example2" class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
         <p class="edit-text">Edit Title</p>
@@ -132,12 +186,9 @@
       <h3 id="authorName">by {{firstBook.author}}</h3>
     </a> --}}
 
- 
+    {{! dropdown for editing note view }}
 
-
-    {{!-- dropdown for editing note view --}}
-
-    {{!-- <ul class="navbar-nav">
+    {{! <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Menu
@@ -150,9 +201,9 @@
         </li>
     </ul>
 
-    </nav> --}}
+    </nav> }}
 
-{{!-- displayed book note --}}
+    {{! displayed book note }}
     {{!-- <div class="col">
         <h4>argument</h4>
         <p id="argument-text">{{firstBook.argument}}</p>
@@ -167,12 +218,14 @@
     </div>
 </div> --}}
 
-
+  </div>
 </div>
-</div>
-
 
 <script src="js/bookNote.js"></script>
 
 <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
+></script>

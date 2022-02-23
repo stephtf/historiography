@@ -19,6 +19,7 @@ p {
 .note-box-container {
     width: 273px;
     background-color: rgb(244, 246, 249);
+    height: 100vh;
 }
 
 
@@ -33,11 +34,15 @@ p {
 
 }
 
+.display-note-container {
+    height: 100vh;
+}
+
 .display-note-container.active {
     display: none;
 }
     
-.edit-note-box {
+/* .edit-note-box {
     display: none;
 }
 
@@ -49,4 +54,4 @@ p {
 .edit-text {
     font-size: 20px;
     font-weight: bold;
-}
+} */

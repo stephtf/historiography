@@ -22,8 +22,10 @@ const saveNote = document.getElementById('save-note');
 // note boxes
 const noteBoxes = document.getElementsByClassName('select-book'
 );
+// const displayNoteBox = document.getElementsByClassName('display-note-container');
+
 const deleteBtn = document.getElementById('delete-note');
-const editBtn = document.getElementById('edit-note');
+// const editBtn = document.getElementById('edit-note');
 const importantBtn = document.getElementById('important-note');
 
 // to grab user id to save to form input data 
@@ -140,7 +142,8 @@ for (let i = 0; i < noteBoxes.length; i++) {
             console.log('important button');
             console.log(importantBtn);
         });
-        displayNoteBox[0].classList.remove("active");
+        myuserId.classList.remove("active");
+        displayedNote.classList.remove("active");
 
     })
 }
@@ -152,17 +155,19 @@ saveNote.addEventListener('click', () => {
 
 
 const addBtn = document.getElementById('add-new');
-const displayedNote = document.getElementsByClassName('displayed-note-container')[0];
+const displayedNote = document.getElementsByClassName('display-note-container')[0];
 addBtn.addEventListener('click', () => {
         myuserId.classList.toggle("active");
+        displayedNote.classList.toggle("active");
 });
 
 
 
-const displayNoteBox = document.getElementsByClassName('display-note-container');
-const editNoteBox = document.getElementsByClassName('edit-note-box');
 
-editBtn.addEventListener('click', () => {
-    displayNoteBox[0].classList.toggle("active");
-    editNoteBox[0].classList.toggle("active");
-})
+
+// const editNoteBox = document.getElementsByClassName('edit-note-box');
+
+// editBtn.addEventListener('click', () => {
+//     displayNoteBox[0].classList.toggle("active");
+//     editNoteBox[0].classList.toggle("active");
+// })

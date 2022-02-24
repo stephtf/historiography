@@ -13,6 +13,7 @@ const signupForm = async (event) => {
         return false;
     }
     
+    
     if (password === passwordAgain) {
         const addUser = await fetch('/api/users', {
             method: 'POST', 

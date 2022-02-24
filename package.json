@@ -1,10 +1,12 @@
 {
   "name": "historiography",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "historiography allows historians to easily take notes and review the books they have read",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -12,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/stephtf/historiography/issues"
   },

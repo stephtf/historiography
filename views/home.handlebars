@@ -10,19 +10,49 @@
   <div class="card-header pl-3">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="btn btn-outline-secondary nav-link active" id="add-new">add
+        <a class="btn nav-link active" id="add-new">add
           new</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="/home">all notes</a>
+        <a class="btn nav-link active" href="/home">all notes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="">my fields</a>
+        <a class="btn nav-link active" href="#" id="important-note">highlight</a>
       </li>
-      <li class="nav-item">
-        {{! <a class="nav-link active" id="important-note" href="">mark important</a> }}
-        <a class="nav-link active" href="#" id="important-note">highlight</a>
-      </li>
+      <ul class="nav-item pl-0">
+        <a class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">my fields</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+         {{#each books as |book|}}
+        <li class="dropdown-item"><a>{{book.field}}</a></li>
+    
+         {{/each}}
+      </ul>
+
+        <li class="nav-item">
+            <a class="btn nav-link active dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">delete note
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" id="delete-note">yes, delete</a></li>
+              <li><a class="dropdown-item" href="#">cancel</a></li>
+            </ul>
+        </li>
+
+      </div>
+    </div>
+
+{{!-- 
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        my fields
+        </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           
+          <a class="dropdown-item" href="#"></a>
+       
+
+         <a class="nav-link active" href=""></a> --}}
+      
+   
 
       {{! <li class="nav-item">
         <a class="nav-link active" id="delete-note" href="">delete note</a>
@@ -137,31 +167,15 @@
           <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>
           <h3 id="authorName">by {{firstBook.author}}</h3>
         </a>
+
         {{! dropdown for full note view }}
         <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDarkDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              delete note
-            </a>
-            <ul
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="navbarDarkDropdownMenuLink"
-            >
-              {{! <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> }}
-              <li><a class="dropdown-item" id="delete-note">yes, delete</a></li>
-              <li><a class="dropdown-item" href="#">cancel</a></li>
-            </ul>
-          </li>
+          
+
         </ul>
       </nav>
 
+ {{! <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> }}
       {{! displayed book note }}
       <div class="col ml-4 mt-4">
         <h4>argument</h4>

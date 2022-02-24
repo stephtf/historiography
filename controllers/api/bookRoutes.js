@@ -20,6 +20,27 @@ app.get('/:id', async (req, res) => {
 	}
 	});
 
+// get route to grab all books by user for their homepage/dashboard
+// localhost:3001/api/books/allbooks
+// app.get('/allbooks/:user_id', async (req, res) => {
+// 	try {
+// 		const bookData = await Book.findAll({
+// 			where: { user_id: req.params.user_id }
+// 		});
+// 		const books = bookData.map((book) => book.get({plain:true}));
+
+// 		// const firstBook = bookData[0].get({plain:true}); 
+
+// 		res.render('home', { 
+// 			books,
+// 			// firstBook,
+// 			// user_id: req.session.user_id,
+// 		});
+// 	} catch {
+// 		res.status(500).json(err);
+// 	}
+// });
+
 
 // get route to grab all books of the same field
 // localhost:3001/api/books/:field

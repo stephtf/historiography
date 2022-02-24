@@ -12,8 +12,9 @@ p {
     background-color: rgb(244, 248, 249);
 }
 
-#add-new:hover {
-    background-color: rgb(74, 122, 227);
+/* all nav bar buttons on home page */
+a.btn.nav-link.active:hover {
+    background-color: rgb(219, 236, 250); 
 }
 
 .note-box-container {

@@ -1,5 +1,3 @@
-console.log('TESTING THE LOGIN JAVASCRIPT FILE CONNECTION');
-
 const loginForm = async (event) => {
     event.preventDefault();
 

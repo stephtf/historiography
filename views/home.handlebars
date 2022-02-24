@@ -22,9 +22,9 @@
       <ul class="nav-item pl-0">
         <a class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">my fields</a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-         {{#each books as |book|}}
-        <li class="dropdown-item"><a>{{book.field}}</a></li>
-          
+         {{#each uniqueField as |unique|}}
+        <li class="dropdown-item"><a href="#">{{unique}}</a></li>
+    
          {{/each}}
       </ul>
 
@@ -32,7 +32,7 @@
             <a class="btn nav-link active dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">delete note
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" id="delete-note">yes, delete</a></li>
+              <li><a class="dropdown-item" href="#" id="delete-note">yes, delete</a></li>
               <li><a class="dropdown-item" href="#">cancel</a></li>
             </ul>
         </li>

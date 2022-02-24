@@ -34,17 +34,21 @@ app.get('/home', async (req, res) => {
 		const books = bookData.map((book) => book.get({plain:true}));
 
 		const firstBook = bookData[0].get({plain:true}); 
+
+		const uniqueField = [...new Set(books.map(data => data.field))]
+		// console.log(uniqueField);
 	
 		res.render('home', { 
 			books,
 			firstBook,
+			uniqueField,
 			loggedIn: req.session.loggedIn,
 			userIn: req.session.username,
 			user_id: req.session.user_id,
 		})}
 		else { 
-		const books = 'there are no booknotes in the database';
-		const firstBook = 'user needs to enter their first booknote';
+		// const books = 'there are no booknotes in the database';
+		// const firstBook = 'user needs to enter their first booknote';
 		const newMessage = 'enter your first booknote!';
 
 		res.render('home', { 

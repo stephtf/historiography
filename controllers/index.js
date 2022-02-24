@@ -28,10 +28,14 @@ app.get('/home', async (req, res) => {
 		const bookData = await Book.findAll({
 			where: { user_id: req.session.user_id }
 		});
+
+		if (bookData[0] !== undefined){
+
+		console.log(bookData)
+		console.log(bookData[0])
 		const books = bookData.map((book) => book.get({plain:true}));
 
 		const firstBook = bookData[0].get({plain:true}); 
-
 	
 		res.render('home', { 
 			books,
@@ -39,11 +43,50 @@ app.get('/home', async (req, res) => {
 			loggedIn: req.session.loggedIn,
 			userIn: req.session.username,
 			user_id: req.session.user_id,
-		});
+		})}
+		else {console.log('no book data');
+		const books = 'testing books';
+		const firstBook = 'testing firstBook';
+		console.log('is this where we are having issues?');
+	
+	
+		res.render('home', { 
+			books,
+			firstBook,
+			loggedIn: req.session.loggedIn,
+			userIn: req.session.username,
+			user_id: req.session.user_id,
+		})}
+		
+
+
+		
+		console.log('error is happening after render');
 	  } catch (err) {
 		res.status(500).json(err);              
 	  }
 	});
+
+// app.get('/home', async (req, res) => {
+// 	try {
+// 		const bookData = await Book.findAll({
+// 			where: { user_id: req.session.user_id }
+// 		});
+// 		const books = bookData.map((book) => book.get({plain:true}));
+
+// 		const firstBook = bookData[0].get({plain:true}); 
+
+// 		res.render('home', { 
+// 			books,
+// 			firstBook,
+// 			loggedIn: req.session.loggedIn,
+// 			userIn: req.session.username,
+// 			user_id: req.session.user_id,
+// 		});
+// 		} catch (err) {
+// 		res.status(500).json(err);              
+// 		}
+// 	});
 
 
 // localhost:3001/add (add new books)

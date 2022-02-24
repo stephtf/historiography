@@ -12,11 +12,11 @@
 </head>
 <body>
     {{!-- <img class="background-image" src="img/background.jpg"> --}}
-    <nav class="row display-flex justify-content-center align-items-center mt-4"> 
-        <a href="/about" class="m-2">about</a>
-        <a href ="/" class="m-2"><h1>historiography</h1></a>
+    <nav class="row display-flex justify-content-center align-items-center hist-nav"> 
+        <a href="/about" class="m-2 text-dark">about</a>
+        <a href ="/" class="m-2"><h1 class="h-text">historiography</h1></a>
         {{#if loggedIn}}
-         <a href="" id="logout-button" class="m-2">log out</a>
+         <a href="" id="logout-button" class="m-2 text-dark">log out</a>
         {{else}}
         <a href="/" class="m-2">log in</a>
         {{/if}}

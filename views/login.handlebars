@@ -1,8 +1,8 @@
 {{! don't forget that this login page is the landing page so it's localhost:3001 }}
-<div class="container">
+<div class="container login-signup">
     <h2>login</h2>
     <form>
-        <div class="form-group row col-sm-6">
+        <div class="form-group row input-box">
             <label>username</label>
             <input placeholder="username" class="form-control" id="existing-username"></input>
         </div>
@@ -12,7 +12,57 @@
         </div> --}}
 
 {{!-- new password form --}}
-    <div class="form-group row col-sm-6">
+    <div class="form-group row col mt-4 input-box">
+      <label>password</label>
+        <div class="input-group mb-2 border-radius input-box">
+            <div class="input-group-prepend">
+                  <span id="basic-addon1"><i class="fas fa-lock"></i></span>
+            </div>
+            
+            <input name="password" type="password" value="" class="input form-control pass-input" id="existing-password" placeholder="password" required="true" aria-label="password" aria-describedby="basic-addon1"/>
+            
+        <div class="input-group-append">
+            <span onclick="password_show_hide();">
+                <i class="fas fa-eye show_eye" id=""></i>
+                <i class="fas fa-eye-slash d-none hide_eye" id=""></i>
+            </span>
+        </div>
+    </div>
+</div>
+</form>
+
+<button class="btn btn-primary mt-4" id="login-button">login</button>
+
+ <h3 class="mt-4">new user?</h3><h4><a href="/signup" id="signup-button">sign up</a></h4>
+    
+
+
+<script src="js/login.js"></script>
+
+
+
+
+
+
+
+
+{{!-- OLD VERSION --}}
+
+{{! don't forget that this login page is the landing page so it's localhost:3001 }}
+{{!-- <div class="container">
+    <h2>login</h2>
+    <form>
+        <div class="form-group row col-sm-6">
+            <label>username</label>
+            <input placeholder="username" class="form-control" id="existing-username"></input>
+        </div> --}}
+        {{!-- <div class="form-group row col-sm-6">
+            <label>password</label>
+            <input placeholder="password" class="form-control" id="existing-password"></input>
+        </div> --}}
+
+{{!-- new password form --}}
+    {{!-- <div class="form-group row col-sm-6">
       <label>password</label>
         <div class="input-group mb-2">
             <div class="input-group-prepend">
@@ -37,7 +87,5 @@
     
 
 
+<script src="js/login.js"></script> --}}
 
-
-
-<script src="js/login.js"></script>

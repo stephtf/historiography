@@ -1,5 +1,5 @@
 {{#if loggedIn}}
-  <div class="ml-3">welcome back, {{userIn}}!</div>
+  <div class="ml-3 mt-2">welcome back, {{userIn}}!</div>
   <div class="ml-3 mb-2">your user id is: {{user_id}}</div>
 {{else}}
   <div>{{userIn}} is not currently logged in</div>
@@ -162,7 +162,7 @@
 
     {{! displayed note }}
     <div class="display-note-container">
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar">
         <a class="navbar-brand ml-4">
           {{#if firstBook}}
           <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>

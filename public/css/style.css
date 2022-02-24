@@ -26,6 +26,23 @@ p {
     font-size: 16px;
 }
 
+/* colors */
+.h-text {
+    color: black;
+    text-shadow: 1px 1px 2px gray;
+}
+
+
+/* main */
+.hist-nav {
+    background-color: #f5efef;
+    height: 150px;
+}
+
+.navbar {
+    background-color: #fafafa;
+}
+
 /* user homepage */
 .select-book {
     background-color: rgb(235, 239, 244);
@@ -45,6 +62,7 @@ a.btn.nav-link.active:hover {
     background-color: rgb(244, 246, 249);
     height: 100vh;
 }
+
 
 
 /* add new note button */
@@ -99,3 +117,26 @@ a.btn.nav-link.active:hover {
     opacity: 20%;
     position: absolute;
 } */
+
+/* login and signup */
+.login-signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 500px;
+    margin-top: 100px;
+}
+
+.input-box {
+    width: 100;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* adjust the password inputs border radius, which does not respond to class for some reason... */
+#existing-password {
+    border-radius: 5px;
+}

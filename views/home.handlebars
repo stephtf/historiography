@@ -1,8 +1,8 @@
 {{#if loggedIn}}
-  <div class="ml-3 mt-2">welcome back, {{userIn}}!</div>
-  <div class="ml-3 mb-2">your user id is: {{user_id}}</div>
+  <div class="ml-3 mt-2 small-text">welcome back, {{userIn}}!</div>
+  <div class="ml-3 mb-2 small-text">your user id is: {{user_id}}</div>
 {{else}}
-  <div>{{userIn}} is not currently logged in</div>
+  <div class="small-text">{{userIn}} is not currently logged in</div>
 {{/if}}
 
 {{! home menu for historiography }}
@@ -23,7 +23,7 @@
         <a class="btn nav-link active dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">my fields</a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
          {{#each uniqueField as |unique|}}
-        <li class="dropdown-item"><a href="#">{{unique}}</a></li>
+        <li class="dropdown-item"><a href="#" class="medium-text">{{unique}}</a></li>
     
          {{/each}}
       </ul>
@@ -32,8 +32,8 @@
             <a class="btn nav-link active dropdown-toggle" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">delete note
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item" href="#" id="delete-note">yes, delete</a></li>
-              <li><a class="dropdown-item" href="#">cancel</a></li>
+              <li><a class="dropdown-item medium-text" href="#" id="delete-note">yes, delete</a></li>
+              <li><a class="dropdown-item medium-text" href="#">cancel</a></li>
             </ul>
         </li>
 
@@ -187,17 +187,17 @@
       <div class="col ml-4 mt-4">
         {{#if firstBook}}
         <h4>field</h4>
-        <p id="field-text">{{firstBook.field}}</p>
+        <p id="field-text" class="small-text">{{firstBook.field}}</p>
         <h4>argument</h4>
-        <p id="argument-text">{{firstBook.argument}}</p>
+        <p id="argument-text" class="small-text">{{firstBook.argument}}</p>
         <h4>examples</h4>
-        <p id="example-text">{{firstBook.examples}}</p>
+        <p id="example-text" class="small-text">{{firstBook.examples}}</p>
         <h4>methods and sources</h4>
-        <p id="methods-text">{{firstBook.methods}}</p>
+        <p id="methods-text" class="small-text">{{firstBook.methods}}</p>
         <h4>keywords</h4>
-        <p id="keyword-text">{{firstBook.keywords}}</p>
+        <p id="keyword-text" class="small-text">{{firstBook.keywords}}</p>
         <h4>significance</h4>
-        <p id="significance-text">{{firstBook.significance}}</p>
+        <p id="significance-text" class="small-text">{{firstBook.significance}}</p>
         {{/if}}
       </div>
       

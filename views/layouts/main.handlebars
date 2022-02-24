@@ -13,12 +13,12 @@
 <body>
     {{!-- <img class="background-image" src="img/background.jpg"> --}}
     <nav class="row display-flex justify-content-center align-items-center hist-nav"> 
-        <a href="/about" class="m-2 text-dark">about</a>
-        <a href ="/" class="m-2"><h1 class="h-text">historiography</h1></a>
+        <a href="/about" class="m-2 medium-text link-text">about</a>
+        <a href ="/" class="m-2"><h1 class="large-text">historiography</h1></a>
         {{#if loggedIn}}
-         <a href="" id="logout-button" class="m-2 text-dark">log out</a>
+         <a href="" id="logout-button" class="m-2 medium-text link-text">log out</a>
         {{else}}
-        <a href="/" class="m-2">log in</a>
+        <a href="/" class="m-2 medium-text link-text">log in</a>
         {{/if}}
     </nav>
     {{{ body }}} 

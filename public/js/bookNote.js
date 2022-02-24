@@ -12,6 +12,7 @@ const newSignificance = document.getElementById('note-significance');
 // divs where the selected note will be appended
 const titleBox = document.getElementById('bookTitle');
 const authorName = document.getElementById('authorName');
+const fieldBox = document.getElementById('field-text');
 const argumentBox = document.getElementById('argument-text');
 const examplesBox = document.getElementById('example-text');
 const keywordBox = document.getElementById('keyword-text');
@@ -76,8 +77,12 @@ const displayNote = (bookId) => {
         console.log(bookData);
         titleBox.textContent = bookData.title;
         authorName.textContent = `by ${bookData.author}`;
+        fieldBox.textContent = bookData.field;
         argumentBox.textContent = bookData.argument;
         examplesBox.textContent = bookData.examples;
+        methodsBox.textContent = bookData.methods;
+        keywordBox.textContent = bookData.keywords;
+        significanceBox.textContent = bookData.significance;
     })
     .catch(err => {
         console.error(err);

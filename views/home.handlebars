@@ -164,8 +164,14 @@
     <div class="display-note-container">
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand ml-4">
+          {{#if firstBook}}
           <h2 id="bookTitle" class="text-wrap mb-3">{{firstBook.title}}</h2>
           <h3 id="authorName">by {{firstBook.author}}</h3>
+          {{/if}}
+
+          {{#if newMessage}}
+          <p class="mb-2"> it's looking pretty empty over here, {{userIn}}.</p><p>click on "add new" to create your first historiography note!</p>
+          {{/if}}
         </a>
 
         {{! dropdown for full note view }}
@@ -177,7 +183,11 @@
 
  {{! <li><a class="dropdown-item" href="#" id="edit-note">edit note</a></li> }}
       {{! displayed book note }}
+      
       <div class="col ml-4 mt-4">
+        {{#if firstBook}}
+        <h4>field</h4>
+        <p id="field-text">{{firstBook.field}}</p>
         <h4>argument</h4>
         <p id="argument-text">{{firstBook.argument}}</p>
         <h4>examples</h4>
@@ -188,7 +198,9 @@
         <p id="keyword-text">{{firstBook.keywords}}</p>
         <h4>significance</h4>
         <p id="significance-text">{{firstBook.significance}}</p>
+        {{/if}}
       </div>
+      
     </div>
 
     {{! EDITING A NOTE }}

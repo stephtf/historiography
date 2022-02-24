@@ -31,8 +31,6 @@ app.get('/home', async (req, res) => {
 
 		if (bookData[0] !== undefined){
 
-		console.log(bookData)
-		console.log(bookData[0])
 		const books = bookData.map((book) => book.get({plain:true}));
 
 		const firstBook = bookData[0].get({plain:true}); 
@@ -44,24 +42,20 @@ app.get('/home', async (req, res) => {
 			userIn: req.session.username,
 			user_id: req.session.user_id,
 		})}
-		else {console.log('no book data');
-		const books = 'testing books';
-		const firstBook = 'testing firstBook';
-		console.log('is this where we are having issues?');
-	
-	
+		else { 
+		const books = 'there are no booknotes in the database';
+		const firstBook = 'user needs to enter their first booknote';
+		const newMessage = 'enter your first booknote!';
+
 		res.render('home', { 
-			books,
-			firstBook,
+			// books,
+			// firstBook,
+			newMessage,
 			loggedIn: req.session.loggedIn,
 			userIn: req.session.username,
 			user_id: req.session.user_id,
 		})}
 		
-
-
-		
-		console.log('error is happening after render');
 	  } catch (err) {
 		res.status(500).json(err);              
 	  }

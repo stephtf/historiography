@@ -1,3 +1,23 @@
+/* font-family: 'Buenard', serif;
+font-family: 'Judson', serif;
+font-family: 'Sacramento', cursive; */
+
+* {
+
+    /* font-family: 'Judson', serif; */
+    font-family: 'Buenard', serif;
+    font-size: 17px;
+}
+
+
+
+h1 {
+    /* font-family: 'Sacramento', cursive; */
+    font-size: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
 /* new note text */
 p {
     font-size: 16px;
@@ -64,3 +84,15 @@ a.btn.nav-link.active:hover {
 #save-note {
     margin-bottom: 25px;
 }
+
+/* about page */
+.jumbotron {
+   padding: 70px 0;
+}
+
+
+/* .background-image {
+    width: 500px;
+    opacity: 20%;
+    position: absolute;
+} */

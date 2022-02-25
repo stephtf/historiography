@@ -143,7 +143,7 @@ for (let i = 0; i < noteBoxes.length; i++) {
         // }) 
         console.log(importantBtn)
         importantBtn.addEventListener('click', () => {
-            noteBoxes[i].style.color = "blue";
+            noteBoxes[i].style.color = "#2963DF";
             console.log('important button');
             console.log(importantBtn);
         });

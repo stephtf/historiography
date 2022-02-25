@@ -39,7 +39,7 @@ p {
 }
 
 .large-text:hover {
-    color: #2963DF;
+    color: #520e0e;
 }
 
 .small-text {
@@ -53,8 +53,13 @@ p {
     /* text-shadow: 2px 2px 5px #f5efef; */
 }
 
+.md-lg {
+    font-size: 24px;
+    /* color: black; */
+}
+
 .link-text:hover {
-    color: #2963DF;
+    color: #520e0e;
 }
 
 /* main */
@@ -86,7 +91,21 @@ a.btn.nav-link.active {
     font-size: 20px;
 }
 
+a.btn.nav-link.active:hover {
+    background-color: #f5efef; 
+}
 
+.red-btn {
+    background-color: #fff9f9;
+    color: black;
+    /* border: 1px solid black; */
+    box-shadow: 1px 1px 1px rgb(203, 200, 200);
+}
+
+.red-btn:hover {
+    background-color: #f5efef;
+    color: black;
+}
 
 .note-box-container {
     width: 273px;
@@ -101,6 +120,14 @@ a.btn.nav-link.active {
 
 
 /* buttons */
+#signup-button {
+    color: #2963DF;
+}
+
+#signup-button:hover {
+    color: rgb(40, 39, 39);
+}
+
 .log-btn {
     background-color: #f5efef;
     box-shadow: 1px 1px 1px rgb(203, 200, 200);
@@ -154,9 +181,7 @@ a.btn.nav-link.active {
 }
 
 /* about page */
-.jumbotron {
-   padding: 70px 0;
-}
+
 
 
 /* .background-image {
@@ -186,4 +211,16 @@ a.btn.nav-link.active {
 /* adjust the password inputs border radius, which does not respond to class for some reason... */
 #existing-password {
     border-radius: 5px;
+}
+
+#new-password {
+    border-radius: 5px;
+}
+
+#new-password-again {
+    border-radius: 5px;
+}
+
+.about {
+    padding-top: 100px;
 }

@@ -225,3 +225,43 @@ div.card-header {
     padding-top: 100px;
 }
 
+
+
+/* media queries */
+@media screen and (max-width: 500px) {
+    .container {
+        max-width: 400px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+.hist-nav {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+}
+
+.nav.nav-tabs {
+    display: block;
+}
+
+.mobile-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-box-container {
+    height: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+p {
+    margin-right: 30px;
+}
+
+}

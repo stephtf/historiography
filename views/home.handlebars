@@ -7,7 +7,7 @@
 
 {{! home menu for historiography }}
 <div class="card text-center">
-  <div class="card-header pl-3">
+  <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
         <a class="btn nav-link active" id="add-new">add
@@ -186,18 +186,24 @@
       
       <div class="col ml-4 mt-4">
         {{#if firstBook}}
-        <h4>field</h4>
+        <h5>field</h5>
         <p id="field-text" class="small-text">{{firstBook.field}}</p>
-        <h4>argument</h4>
+        <hr class="mr-4">
+        <h5>argument</h5>
         <p id="argument-text" class="small-text">{{firstBook.argument}}</p>
-        <h4>examples</h4>
+        <hr class="mr-4">
+        <h5>examples</h5>
         <p id="example-text" class="small-text">{{firstBook.examples}}</p>
-        <h4>methods and sources</h4>
+        <hr class="mr-4">
+        <h5>methods and sources</h5>
         <p id="methods-text" class="small-text">{{firstBook.methods}}</p>
-        <h4>keywords</h4>
+        <hr class="mr-4">
+        <h5>keywords</h5>
         <p id="keyword-text" class="small-text">{{firstBook.keywords}}</p>
-        <h4>significance</h4>
+        <hr class="mr-4">
+        <h5>significance</h5>
         <p id="significance-text" class="small-text">{{firstBook.significance}}</p>
+        {{!-- <hr class="mr-4"> --}}
         {{/if}}
       </div>
       

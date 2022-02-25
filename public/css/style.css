@@ -71,6 +71,7 @@ p {
 
 .navbar {
     background-color: #fafafa;
+    min-height: 150px;
 }
 
 /* user homepage */
@@ -224,7 +225,3 @@ div.card-header {
     padding-top: 100px;
 }
 
-.note-sections {
-    font-size: 18px;
-    text-decoration: underline;
-}
